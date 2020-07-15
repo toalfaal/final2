@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: sans-serif;
+
+}
+
+body {
+    height: 100vh;
+    background-image: url("image/open-road-to-mountains-4k-60.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header {
+    margin: -2px 20px -2px -2px;
+    width: 100.15%;
+    height: 100.2vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    position: absolute;
+    left: 38.15%;
+    top: 50%;
+
+
+
+
+    transform: translate(-50%, -50%);
+    padding: 20px 10px;
+    width: 270px;
+    height: 350px;
+    background-color: rgba(228, 195, 38, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.container form input {
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
+    padding: 15px 10px 8px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #e4ae3f;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+.container form input:hover {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #e4ae3f;
+    color: #e4ae3f;
+    font-size: 20px;
+}
+
+.container label {
+    text-align: left;
+    color: #90caf9;
+}
+
+.container form input::placeholder {
+    color: #e2e2e2;
+
+}
+
+.container form button {
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    position: center;
+    background-color: #e4ae3f;
+    font-size: 18px;
+    color: #fafafa;
+}
+
+.container1 {
+    position: absolute;
+    right: 16%;
+    top: 50%;
+    border-left: 3px solid #e4ae3f;
+
+    transform: translate(-50%, -50%);
+    padding: 20px 10px;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(156, 156, 156, 0.58);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.container1 h1 {
+    text-align: center;
+    color: #fafafa;
+    margin-bottom: 25px;
+    border-right: 5px lightslategray;
+    border-bottom: 4px solid #111111;
+}
+
+.container1 h2 {
+    text-align: center;
+    color: #fafafa;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e4ae3f;
+}
+
+.container1 form input {
+    margin-top: 5px;
+    padding-top: 10px;
+    width: calc(100% - 70px);
+    direction: ltr;
+    padding: 8px 10px;
+    max-lines: 1;
+    margin-bottom: 15px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #e4ae3f;
+    border-right: 1px solid #e4ae3f;
+    border-radius: 20px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    font-size: 20px;
+}
+.form
+{
+    direction: rtl;
+}
+span{
+    color: white;
+    font-family: sans-serif;
+    padding-top: 10px;
+}
+
+
+.container1 label {
+    text-align: left;
+    color: #90caf9;
+}
+
+.container1 form input::placeholder {
+    color: #e2e2e2;
+}
+
+.button {
+    width: calc(100% - 70px);
+    padding: 5px 0;
+    border: none;
+    position: center;
+    background-color: #e4ae3f;
+    font-size: 18px;
+    color: #fafafa;
+    border: #e4ae3f;
+    border-radius: 20px;
+}
+
+form input {
+    color: #e4ae3f;
+}
+
+h1:hover {
+    color: #e4ae3f;
+}

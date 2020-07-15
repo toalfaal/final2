@@ -1,0 +1,33 @@
+p{
+    color: burlywood;
+    background-color: aquamarine;
+    font-weight: bold;
+    font-family: bold;
+    direction: rtl;
+}
+ol{
+    color: burlywood;
+    background-color: aquamarine;
+    font-weight: bold;
+    font-family: bold;
+    direction: rtl;
+}
+dl{
+    color: burlywood;
+    background-color: aquamarine;
+    font-weight: bold;
+    font-family: bold;
+    direction: rtl;
+}
+form{
+    color: burlywood;
+    background-color: aquamarine;
+    font-weight: bold;
+    font-family: bold;
+    direction: rtl;
+}
+div:hover
+{
+    background-color: rgb(255,00,100);
+    font-size: larger;
+}
