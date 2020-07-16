@@ -13,8 +13,11 @@
     background-size: cover;
     background-position: center;
 }
-p{
+p1 {
     direction: rtl;
+    font-size: 15px;
+    line-height: 22px;
+
 }
 .container{
     max-height: 1200px;
@@ -186,6 +189,10 @@ button:hover
 .modal-body {
     padding: 10px 20px;
     background: #fff;
+    direction: rtl;
+}
+.modal-body1{
+    direction: ltr;
 }
 
 .modal-footer {

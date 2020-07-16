@@ -6,23 +6,119 @@
     <link rel="stylesheet" href="login-page-style.css">
 </head>
 <body>
+<script src="jsLoginPage.js"></script>
 <div class="header">
 
     <div class="test"></div>
     <div class="container">
+<!--        <div class="navbar">-->
+
+<!--            <nav>-->
+<!--                <ul>-->
+<!--                    <li><a href="#" id="modal-btn2" class="button">رمز خود را فراموش کرده اید ؟ </a></li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
     </div>
 
     <div class="container1">
         <form class="form" method="post">
             <br> <br> <br> <br>
+            <div>
             <span class="span1">نام کاربری: </span> <br>
             <input type="text"> <br>
-            <span class="span1">رمز عبور: </span> <br>
-            <input type="text">
+
+                <span class="span1">رمز عبور: </span> <br>
+                <input type="text">
+                <br>
+                <a href="#" id="modal-btn3" class="button3">رمز خود را فراموش کرده اید ؟ </a>
+            </div>
+
+
             <br><br><br>
-            <input class="button" type="button" name="close" value="close" close>
+            <input class="button" type="button" name="close" value="بستن" close>
         </form>
+
     </div>
+    <div id="my-modal3" class="modal3">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="direction: rtl">بازیابی رمزعبور</h2>
+
+            </div>
+            <div class="modal-body">
+
+                <p></p><br>
+
+                <p1>
+                    نام کاربری :
+                </p1>
+                <br>
+                <br>
+                <input type="text" class="txt"><br>
+                <p class="code">
+                    * کد امنیتی برای شماره تلفن ثبت شده ارسال خواهد شد.
+                </p>
+
+                <button id="modal-btn4" type="button" class="btn">ارسال کد</button>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+    <div id="my-modal4" class="modal4">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="direction: rtl">تغیر رمز</h2>
+            </div>
+            <div class="modal-body">
+                <p>
+                    کد پیامک شده :
+                </p><br>
+                 <input type="text" class="txt"><br>
+                <p>
+                    رمز عبور جدید :
+                </p><br>
+                <input type="text" class="txt">
+                <div class="repeat_password">
+                <p >
+                    تکرار رمز عبور جدید :
+                </p></div>
+                <input type="text" class="txt">
+
+
+
+               <br><br><br>
+                <button   id="btn5"  type="button" class="btn"> تغیر رمز عبور</button>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+<!--        <div id="my-modal4" class="modal4">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <span class="close4">&times;</span>-->
+<!--                    <h2>بازیابی رمز</h2>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    <p></p><br>-->
+
+<!--                    <p1>-->
+<!--                        لطفا نام کاربری خود را وارد کنید-->
+<!--                    </p1>-->
+<!--                    <br><br><br>-->
+<!--                    <input type="text" class="txt"><br><br><br>-->
+<!--                    <button type="button" class="btn"> تایید</button>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+
+<!--                </div>-->
+<!--            </div>-->
+
 </div>
 </body>
 </html>
