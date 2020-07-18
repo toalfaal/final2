@@ -44,8 +44,8 @@ public class DataBaseHelper {
         //nages
     }
 
-    public void readFromTableForEmployee() throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = '...'");
+    public void readFromTableForEmployee(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
 
         while (res.next()) {
             String namePersian = res.getString("fName");
@@ -82,9 +82,9 @@ public class DataBaseHelper {
         //NAGES
     }
 
-    public void readFromTableJobCategory() throws SQLException {
+    public void readFromTableJobCategory(String serialNumber) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = ...");
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
 
         while (res.next()) {
 
@@ -107,8 +107,8 @@ public class DataBaseHelper {
                 " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES...");
     }
 
-    public void readTableLegalReceipt() throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM LegalReceipt WHERE legalReceiptSerialCode = ...");
+    public void readTableLegalReceipt(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM LegalReceipt WHERE legalReceiptSerialCode = serialNumber");
 
         while (res.next()) {
 
@@ -137,8 +137,8 @@ public class DataBaseHelper {
                 "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES ...");
     }
 
-    public void readFromTablePayRate() throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = '...'");
+    public void readFromTablePayRate(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = serialNumber");
 
         double BaseRate = res.getDouble("BaseRate");
         double childRate = res.getDouble("childRate");
@@ -151,6 +151,8 @@ public class DataBaseHelper {
     }
 
     public static void main(String[] args) {
+
         new DataBaseHelper();
+
     }
 }

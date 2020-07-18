@@ -1,5 +1,3 @@
-package AccountingSystem;
-
 public class JobCategory {
 
     //fields
