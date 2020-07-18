@@ -11,7 +11,7 @@ public class DataBaseHelper{
 
     public static void getConnection(){
         Class.forName.getConnection("jdbc:mysql://localhost/3306/");
-        con = DriverManager
+        con = DriverM
 
     }
 
