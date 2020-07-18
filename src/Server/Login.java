@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
             } else {
                 String status = String.valueOf(entrance.login());
                 request.setAttribute("status", status);
-                ((RequestDispatcher)dispatcher).forward(request, response);
+                dispatcher.forward(request, response);
                 System.out.println("try to login");
             }
         } else if (usernameForgetPassword != null) {
