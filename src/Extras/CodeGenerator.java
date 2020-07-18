@@ -26,14 +26,15 @@ public class CodeGenerator {
         Random random = new Random();
         StringBuilder result = new StringBuilder();
         int digitNumber = getDigitNumber();
-        int digit ;
-        while (true){
-            if (result.length()==digitNumber)
+        int digit;
+        while (true) {
+            if (result.length() == digitNumber)
                 return result.toString();
 
             digit = random.nextInt(10);
-            if (digit>0)
+            if (digit > 0)
                 result.append(digit);
         }
     }
+
 }
