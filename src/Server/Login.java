@@ -20,30 +20,35 @@ public class Login extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
         request.setAttribute("status", "null");
+        System.out.println("Login.doGet");
         dispatcher.forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String usernameForgetPassword = request.getParameter("usernameForgetPassword");
+//        String usernameForgetPassword = request.getParameter("usernameForgetPassword");
+        System.out.println("Login.doPost");
         if (username != null) {
             Entrance entrance = new Entrance(username, password);
-            RequestDispatcher dispatcher = null;
-            if (entrance.isClient()) {
-                request.setAttribute("syntax", 1);
-            } else {
-                String status = String.valueOf(entrance.login());
-                request.setAttribute("status", status);
+
+            boolean status  = entrance.login();
+            if (status){
+           RequestManager requestManager = new RequestManager();
+           request.setAttribute("id",username);
+           requestManager.doGet(request, response);
+            }else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
+                request.setAttribute("status", "false");
                 dispatcher.forward(request, response);
-                System.out.println("try to login");
             }
-        } else if (usernameForgetPassword != null) {
-            System.out.println("try to send code");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
-            request.setAttribute("syntax", "forgetPass");
-            dispatcher.forward(request, response);
+
         }
+//        else if (usernameForgetPassword != null) {
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
+//            request.setAttribute("syntax", "forgetPass");
+//            dispatcher.forward(request, response);
+//        }
 
     }
 }
