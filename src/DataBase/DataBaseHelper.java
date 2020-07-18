@@ -44,7 +44,7 @@ public class DataBaseHelper {
         //nages
     }
 
-    public void readFromTableForEmployee(String serialNumber) throws SQLException {
+    public void readFromTableForEmployeeByPN(String serialNumber) throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
 
         while (res.next()) {
@@ -67,11 +67,113 @@ public class DataBaseHelper {
             String postNameEnglish = "post name english//" + res.getString("postNameE");
             String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
             String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
-
-
-
         }
     }
+
+    public void readFromTableForEmployeeByEN(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+
+        while (res.next()) {
+            String namePersian = ("name persian//" + res.getString("fName"));
+            String lastNamePersian = "lastname persian//" + res.getString("lName");
+            String nameEnglish = "name english//" + res.getString("eFName");
+            String lastNameEnglish = "lastname english//" + res.getString("eLName");
+            String idNumber = "id number//" + res.getString("idNumber");
+            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
+            String homeNumber = "home number//" + res.getString("homeNumber");
+            String employmentYear = "employment year//" + res.getInt("employmentYear");
+            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
+            String employmentDay = "employment day//" + res.getInt("employmentDay");
+            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
+            String childCount = "child count//" + res.getInt("childCount");
+            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
+            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
+            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
+            String postNamePersian = "post name persian//" + res.getString("postNameP");
+            String postNameEnglish = "post name english//" + res.getString("postNameE");
+            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
+            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+        }
+    }
+
+    public void readFromTableForEmployeeByIDNumber(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+
+        while (res.next()) {
+            String namePersian = ("name persian//" + res.getString("fName"));
+            String lastNamePersian = "lastname persian//" + res.getString("lName");
+            String nameEnglish = "name english//" + res.getString("eFName");
+            String lastNameEnglish = "lastname english//" + res.getString("eLName");
+            String idNumber = "id number//" + res.getString("idNumber");
+            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
+            String homeNumber = "home number//" + res.getString("homeNumber");
+            String employmentYear = "employment year//" + res.getInt("employmentYear");
+            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
+            String employmentDay = "employment day//" + res.getInt("employmentDay");
+            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
+            String childCount = "child count//" + res.getInt("childCount");
+            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
+            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
+            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
+            String postNamePersian = "post name persian//" + res.getString("postNameP");
+            String postNameEnglish = "post name english//" + res.getString("postNameE");
+            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
+            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+        }
+    }
+    public void readFromTableForEmployeejobCategorySerial(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+
+        while (res.next()) {
+            String namePersian = ("name persian//" + res.getString("fName"));
+            String lastNamePersian = "lastname persian//" + res.getString("lName");
+            String nameEnglish = "name english//" + res.getString("eFName");
+            String lastNameEnglish = "lastname english//" + res.getString("eLName");
+            String idNumber = "id number//" + res.getString("idNumber");
+            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
+            String homeNumber = "home number//" + res.getString("homeNumber");
+            String employmentYear = "employment year//" + res.getInt("employmentYear");
+            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
+            String employmentDay = "employment day//" + res.getInt("employmentDay");
+            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
+            String childCount = "child count//" + res.getInt("childCount");
+            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
+            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
+            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
+            String postNamePersian = "post name persian//" + res.getString("postNameP");
+            String postNameEnglish = "post name english//" + res.getString("postNameE");
+            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
+            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+        }
+    }
+
+    public void readFromTableForEmployeeByCardNumber(String serialNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+
+        while (res.next()) {
+            String namePersian = ("name persian//" + res.getString("fName"));
+            String lastNamePersian = "lastname persian//" + res.getString("lName");
+            String nameEnglish = "name english//" + res.getString("eFName");
+            String lastNameEnglish = "lastname english//" + res.getString("eLName");
+            String idNumber = "id number//" + res.getString("idNumber");
+            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
+            String homeNumber = "home number//" + res.getString("homeNumber");
+            String employmentYear = "employment year//" + res.getInt("employmentYear");
+            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
+            String employmentDay = "employment day//" + res.getInt("employmentDay");
+            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
+            String childCount = "child count//" + res.getInt("childCount");
+            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
+            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
+            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
+            String postNamePersian = "post name persian//" + res.getString("postNameP");
+            String postNameEnglish = "post name english//" + res.getString("postNameE");
+            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
+            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+        }
+    }
+
+
 
     public void createTableJobCategory() throws SQLException {
         stt.execute("DROP TABLE IF EXISTS jobCategory");
@@ -84,7 +186,35 @@ public class DataBaseHelper {
         //NAGES
     }
 
-    public void readFromTableJobCategory(String serialNumber) throws SQLException {
+    public void readFromTableJobCategoryByPN(String serialNumber) throws SQLException {
+
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
+
+        while (res.next()) {
+
+            String categoryNamePersian = res.getString("categoryNamePersian");
+            String categoryNameEnglish = ("categoryNameEnglish");
+            String postNamePersian = ("postNamePersian");
+            String postNameEnglish = ("postNameEnglish");
+            String JobCategorySerialCode = ("jobCategorySerialCode");
+        }
+    }
+
+    public void readFromTableJobCategoryByEN(String serialNumber) throws SQLException {
+
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
+
+        while (res.next()) {
+
+            String categoryNamePersian = res.getString("categoryNamePersian");
+            String categoryNameEnglish = ("categoryNameEnglish");
+            String postNamePersian = ("postNamePersian");
+            String postNameEnglish = ("postNameEnglish");
+            String JobCategorySerialCode = ("jobCategorySerialCode");
+        }
+    }
+
+    public void readFromTableJobCategoryByJCSC(String serialNumber) throws SQLException {
 
         ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
 
