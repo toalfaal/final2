@@ -1,30 +1,14 @@
+
 public class DataBaseTransfer {
 
-    Employee employee = new Employee();
-    PayRate payRate = new PayRate();
-    LegalReceipt legalReceipt = new LegalReceipt();
-    JobCategory jobCategory = new JobCategory();
-
     //constructor
-    public DataBaseTransfer(Employee employee) {
-        this.employee = employee;
-    }
+    public DataBaseTransfer() {
 
-    public DataBaseTransfer(PayRate payRate) {
-        this.payRate = payRate;
-    }
-
-    public DataBaseTransfer(LegalReceipt legalReceipt) {
-        this.legalReceipt = legalReceipt;
-    }
-
-    public DataBaseTransfer(JobCategory jobCategory) {
-        this.jobCategory = jobCategory;
     }
 
     //methods
 
-    public String[] dbWriteEmployee() {
+    public String[] dbWriteEmployee(Employee employee) {
 
         String[] array = new String[19];
         array[0] = employee.getName_Persian();
@@ -78,7 +62,7 @@ public class DataBaseTransfer {
         }
     }
 
-    public String[] dbWritePayRate() {
+    public String[] dbWritePayRate(PayRate payRate) {
 
         String[] array = new String[8];
         array[0] = String.valueOf(payRate.getBaseRate());
@@ -110,7 +94,7 @@ public class DataBaseTransfer {
         }
     }
 
-    public String[] dbWriteLegalReceipt() {
+    public String[] dbWriteLegalReceipt(LegalReceipt legalReceipt) {
 
         String[] array = new String[11];
         array[0] = String.valueOf(legalReceipt.getBaseAmount());
@@ -148,7 +132,7 @@ public class DataBaseTransfer {
         }
     }
 
-    public String[] dbWriteLJobCategory() {
+    public String[] dbWriteLJobCategory(JobCategory jobCategory) {
 
         String[] array = new String[5];
 
@@ -175,6 +159,5 @@ public class DataBaseTransfer {
             return new JobCategory();
         }
     }
-
 
 }
