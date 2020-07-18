@@ -10,14 +10,14 @@ public class SMS {
     private String message = "";
 
     public SMS(String phoneNumber) {
-        if (phoneNumber.charAt(0)!='0')
-            phoneNumber="0"+phoneNumber;
+        if (phoneNumber.charAt(0) != '0')
+            phoneNumber = "0" + phoneNumber;
         this.phoneNumber = phoneNumber;
     }
 
     public void setMessage(String message) {
         String[] temp = message.split(" ");
-        StringBuilder mes= new StringBuilder();
+        StringBuilder mes = new StringBuilder();
         for (String str :
                 temp) {
             mes.append(str).append("%20");
@@ -25,14 +25,17 @@ public class SMS {
         this.message = mes.toString();
     }
 
-    public String sendCode(String code){
-        this.setMessage("Code: "+code);
+    public String sendCode(String code) {
+        this.setMessage("Code: " + code);
         return send();
     }
 
     public String send() {
         try {
-            String url = "https://raygansms.com/SendMessageWithCode.ashx?Username=a0forghani&Password=1346794613&Mobile=" + phoneNumber + "&Message=" + message;
+            String url = "https://raygansms.com/SendMessageWithCode.ashx?Username=a0forghani&Password=1346794613&Mobile="
+                    + phoneNumber +
+                    "&Message=" +
+                    message;
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -55,11 +58,11 @@ public class SMS {
             in.close();
             if (Integer.parseInt(response.toString()) > 2000) {
                 return "پیام با موفقیت ارسال شد.";
-            }else
+            } else
                 return response.toString();
         } catch (UnknownHostException e) {
             return "خطای اتصال به اینترنت";
-        }catch (Exception e){
+        } catch (Exception e) {
             return "حظا";
         }
 
