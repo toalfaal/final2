@@ -34,7 +34,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public Employee dbReadEmployee(String[] array) {
+    public static Employee dbReadEmployee(String[] array) {
 
         if (array.length == 19) {
             Employee returnEmployee = new Employee();
