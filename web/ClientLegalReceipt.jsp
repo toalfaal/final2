@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: jinos
+  Date: 7/18/2020
+  Time: 6:54 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>User Panel</title>
-    <link rel="stylesheet" href="fish-hogugi-style.css">
+    <link rel="stylesheet" href="Client/CSS/LegalReceipt.css">
 
 </head>
 <body>
@@ -18,10 +25,10 @@
 
             <nav>
                 <ul>
-                    <li><a href="#" id="user-info" class="button1"> اطلاعات شخصی <img src="image/user_menu_female_24px.png" class="user-p"></a></li>
-                    <li><a href="#" id="fish hogugi" class="button2">فیش حقوقی <img src="image/receipt_terminal_50px.png" class="fish-p"></a></li>
-                    <li><a href="#" id="schedule-time" class="button3"> سابقه کاری <img src="image/schedule_64px.png" class="schedule-time-p"></a></li>
-                    <li><a href="#" id="exit" class="button4">     خروج <img src="image/exit_30px.png" class="exit-p"></a></li>
+                    <li><a href="request?id=1234&syntax=loadPersonalInfo"  class="button1"> اطلاعات شخصی <img src="Client/Image/personalInfo.png" class="user-p"></a></li>
+                    <li><a href="request?id=1234&syntax=loadLegalReceipt" class="button2">فیش حقوقی <img src="Client/Image/legalReceipt.png" class="fish-p"></a></li>
+                    <li><a href="request?id=1234&syntax=loadScheduleTime"  class="button3"> سابقه کاری <img src="Client/Image/scheduleTime.png" class="schedule-time-p"></a></li>
+                    <li><a href="request?id=1234&syntax=exit"  class="button4">     خروج <img src="Client/Image/exit.png" class="exit-p"></a></li>
 
                 </ul>
             </nav>
@@ -37,15 +44,15 @@
                     <th style="font-size: 20px" class="t4">حق بیمه</th>
                     <th style="font-size: 20px" class="t5">حق عائله مندی</th>
                     <th style="font-size: 20px" class="t6">حق اولاد</th>
-                    <th  style="font-size: 20px"class="t7">سنوات</th>
-                    <th  style="font-size: 20px"class="t8">جمع پرداخت ها</th>
+                    <th  style="font-size: 20px" class="t7">سنوات</th>
+                    <th  style="font-size: 20px" class="t8">جمع پرداخت ها</th>
                     <th style="font-size: 20px" class="t9">جمع کسورات</th>
                     <th style="font-size: 20px" class="t10">خالص دریافتی</th>
 
                 </tr>
                 <tr style="text-align: center">
                     <td >فروردین</td>
-                    <td>5 </td>
+                    <td>2</td>
                     <td>6</td>
                     <td>2</td>
                     <td>2</td>
