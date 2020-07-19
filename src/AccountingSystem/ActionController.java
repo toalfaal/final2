@@ -124,11 +124,43 @@ public class ActionController {
     }
 
     public int calculateWorkExperienceMonth(Employee employee) {
-        return 15;
+
+        int current_Year = 1399;
+        int current_Month = 4;
+        int current_Day = 29;
+
+        int employee_Year = employee.getEmployment_Year();
+        int employee_Month = employee.getEmployment_Month();
+        int employee_Day = employee.getEmployment_Day();
+
+        int result_Year = 0;
+        int result_Month = 0;
+        int result_Day = 0;
+
+        int finalResult = 0;
+
+        if (current_Month > employee_Month) {
+            current_Year--;
+            current_Month += 12;
+        }
+
+        if (current_Day > employee_Day) {
+            current_Month--;
+            current_Day += 31;
+        }
+
+        result_Year = current_Year - employee_Year;
+        result_Month = current_Month - employee_Month;
+        result_Day = current_Day - employee_Day;
+
+        finalResult = result_Year * 365 + result_Month * 30 + result_Day;
+
+        return finalResult;
     }
 
     public int calculateExtraWorkTimeMinute(Employee employee) {
-        return 0;
+//        Math.random()
+        return 129;
     }
 
     //read from database
@@ -164,7 +196,7 @@ public class ActionController {
     }
 
 
-    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian, postName_Persian) throws Exception {
+    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian, String postName_Persian) throws Exception {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
         return dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian, postName_Persian);
