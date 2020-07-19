@@ -5,9 +5,7 @@
 
 }
 .header{
-    margin: -2px;
-    margin-top: -9.6px;
-    margin-right: 20px;
+    margin: -9.6px 20px -2px -2px;
     width: 100.15%;
     height: 101vh;
     background-image:url("image/test7.jpg");
@@ -98,4 +96,62 @@ nav ul li img{
     position: relative;
     top: 10px;
     left: 30px;
+}
+.etelaat{
+    width: 1030px;
+    height: 600px;
+    background: linear-gradient(rgba(244, 240, 255, 0.89), rgb(187, 187, 187));
+    position: absolute;
+    top: 60px;
+    border-radius: 3mm;
+    left: 200px;
+}
+table{
+    border-collapse: collapse;
+}
+table th{
+   /*text-align: right;*/
+    padding-inline: 5px;
+    background-color: rgba(0, 69, 255, 0.65);
+}
+.t1{
+    padding-left: 10px;
+}
+.t2{
+    padding-left: 10px;
+}
+.t3{
+    padding-left: 10px;
+}
+.t4{
+    padding-left: 10px;
+}
+.t5{
+    padding-left: 10px;
+}
+.t6{
+    padding-left: 10px;
+}
+.t7{
+    padding-left: 10px;
+}
+.t8{
+    padding-left: 10px;
+}
+.t9{
+    padding-left: 20px;
+}
+t10{
+    padding-left: 25px;
+}
+table td{
+    align-items: center;
+    border: 1px solid #0045ff;
+    margin: 20px 30px;
+    padding: 10px 20px;
+    /*position: absolute;*/
+    /*top: 100px;    */
+}
+table tr:nth-child(odd) td{
+    background-color: rgba(0, 69, 255, 0.29);
 }
