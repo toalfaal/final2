@@ -2,6 +2,7 @@ package DataBase;
 
 import AccountingSystem.DataBaseTransfer;
 import AccountingSystem.Employee;
+import AccountingSystem.JobCategory;
 
 import java.sql.*;
 
@@ -46,7 +47,7 @@ public class DataBaseHelper {
                 "idNumber, cellphoneNumber, homeNumber, employmentYear, employmentMonth, employmentDay, employmentIDNumber, childCount" +
                 " maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode, cardNumber)" +
                 " VALUES (emp[0],emp[1],emp[2],emp[3],emp[4],emp[5],emp[6],emp[7],emp[8],emp[9],emp[10],emp[11],emp[12],emp[13],emp[14],emp[15]" +
-                ",emp[16],emp[17],emp[18])");
+                ",emp[16],emp[17],emp[18],emp[19])");
     }
 
 
@@ -190,31 +191,30 @@ public class DataBaseHelper {
         return DataBaseTransfer.dbReadEmployee(array);
     }
 
-
-
     public void createTableJobCategory() throws SQLException {
         stt.execute("DROP TABLE IF EXISTS jobCategory");
-        stt.execute("CREATE TABLE jobCategory (id BIGINT, categoryNamePersian, categoryNameEnglish, postNamePersian, postNameEnglish, jobCategorySerialCode, PRIMARY KEY(id)");
+        stt.execute("CREATE TABLE jobCategory (id BIGINT, categoryNamePersian, categoryNameEnglish, postNamePersian," +
+                " postNameEnglish, jobCategorySerialCode, PRIMARY KEY(id)");
     }
 
-    public void writeToTableJobCategory() throws SQLException {
+    public void writeToTableJobCategory(String[] array) throws SQLException {
         stt.execute("INSERT INTO jobCategory (categoryNamePersian, categoryNameEnglish, postNamePersian, postNameEnglish, jobCategorySerialCode)" +
-                "VALUES ... ");
-        //NAGES
+                "VALUES (array[0],array[1],array[2],array[3],array[4]) ");
     }
 
-    public void readFromTableJobCategoryByPN(String serialNumber) throws SQLException {
+    public JobCategory readFromTableJobCategoryByPN(String serialNumber) throws SQLException {
 
         ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
 
         while (res.next()) {
 
-            String categoryNamePersian = res.getString("categoryNamePersian");
-            String categoryNameEnglish = ("categoryNameEnglish");
-            String postNamePersian = ("postNamePersian");
-            String postNameEnglish = ("postNameEnglish");
-            String JobCategorySerialCode = ("jobCategorySerialCode");
+            array[0] = res.getString("categoryNamePersian");
+            array[1] = res.getString ("categoryNameEnglish");
+            array[2] = res.getString("postNamePersian");
+            array[3] = res.getString ("postNameEnglish");
+            array[4] = res.getString ("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadJobCategory(array);
     }
 
     public void readFromTableJobCategoryByEN(String serialNumber) throws SQLException {

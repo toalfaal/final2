@@ -77,7 +77,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public PayRate dbReadPayRate(String[] array) {
+    public static  PayRate dbReadPayRate(String[] array) {
 
         if (array.length == 8) {
             PayRate returnPayRate = new PayRate();
@@ -112,7 +112,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public LegalReceipt dbReadLegalReceipt(String[] array) {
+    public static LegalReceipt dbReadLegalReceipt(String[] array) {
 
         if (array.length == 11) {
             LegalReceipt returnLegalReceipt = new LegalReceipt();
@@ -146,7 +146,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public JobCategory dbReadJobCategory(String[] array) {
+    public static JobCategory dbReadJobCategory(String[] array) {
 
         if (array.length == 5) {
             JobCategory returnJobCategory = new JobCategory();
