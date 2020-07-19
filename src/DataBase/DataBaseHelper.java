@@ -3,6 +3,7 @@ package DataBase;
 import AccountingSystem.DataBaseTransfer;
 import AccountingSystem.Employee;
 import AccountingSystem.JobCategory;
+import AccountingSystem.LegalReceipt;
 
 import java.sql.*;
 
@@ -202,49 +203,54 @@ public class DataBaseHelper {
                 "VALUES (array[0],array[1],array[2],array[3],array[4]) ");
     }
 
-    public JobCategory readFromTableJobCategoryByPN(String serialNumber) throws SQLException {
+    public JobCategory readFromTableJobCategoryByPN(String persianName) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE categoryNamePersian = persianName");
 
         while (res.next()) {
 
+            array = new String[5];
             array[0] = res.getString("categoryNamePersian");
-            array[1] = res.getString ("categoryNameEnglish");
+            array[1] = res.getString("categoryNameEnglish");
             array[2] = res.getString("postNamePersian");
-            array[3] = res.getString ("postNameEnglish");
-            array[4] = res.getString ("jobCategorySerialCode");
+            array[3] = res.getString("postNameEnglish");
+            array[4] = res.getString("jobCategorySerialCode");
         }
         return DataBaseTransfer.dbReadJobCategory(array);
     }
 
-    public void readFromTableJobCategoryByEN(String serialNumber) throws SQLException {
+
+    public JobCategory readFromTableJobCategoryByEN(String englishName) throws SQLException {
+
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE categoryNameEnglish = englishName");
+
+        while (res.next()) {
+
+            array = new String[5];
+            array[0] = res.getString("categoryNamePersian");
+            array[1] = res.getString("categoryNameEnglish");
+            array[2] = res.getString("postNamePersian");
+            array[3] = res.getString("postNameEnglish");
+            array[4] = res.getString("jobCategorySerialCode");
+        }
+        return DataBaseTransfer.dbReadJobCategory(array);
+    }
+
+    public JobCategory readFromTableJobCategoryByJCSC(String serialNumber) throws SQLException {
 
         ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
 
         while (res.next()) {
 
-            String categoryNamePersian = res.getString("categoryNamePersian");
-            String categoryNameEnglish = ("categoryNameEnglish");
-            String postNamePersian = ("postNamePersian");
-            String postNameEnglish = ("postNameEnglish");
-            String JobCategorySerialCode = ("jobCategorySerialCode");
+            array = new String[5];
+            array[0] = res.getString("categoryNamePersian");
+            array[1] = res.getString("categoryNameEnglish");
+            array[2] = res.getString("postNamePersian");
+            array[3] = res.getString("postNameEnglish");
+            array[4] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadJobCategory(array);
     }
-
-    public void readFromTableJobCategoryByJCSC(String serialNumber) throws SQLException {
-
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
-
-        while (res.next()) {
-
-            String categoryNamePersian = res.getString("categoryNamePersian");
-            String categoryNameEnglish = ("categoryNameEnglish");
-            String postNamePersian = ("postNamePersian");
-            String postNameEnglish = ("postNameEnglish");
-            String JobCategorySerialCode = ("jobCategorySerialCode");
-        }
-    }
-
 
 
     public void CreateTableLegalReceipt() throws SQLException {
@@ -258,23 +264,25 @@ public class DataBaseHelper {
                 " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES...");
     }
 
-    public void readTableLegalReceipt(String serialNumber) throws SQLException {
+    public LegalReceipt readTableLegalReceipt(String serialNumber) throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM LegalReceipt WHERE legalReceiptSerialCode = serialNumber");
 
         while (res.next()) {
 
-            double BaseAmount = res.getDouble("BaseAmount");
-            double childAmount = res.getDouble("childAmount");
-            double maritalStatusAmount = res.getDouble("maritalStatusAmount");
-            double workExperienceAmount = res.getDouble("workExperienceAmount");
-            double extraWorkTimeAmount = res.getDouble("extraWorkTimeAmount");
-            double totalAdditions = res.getDouble("totalAdditions");
-            double totalDeductions = res.getDouble("totalDeductions");
-            double finalSalary = res.getDouble("finalSalary");
-            double taxAmount = res.getDouble("taxAmount");
-            double insuranceAmount = res.getDouble("insuranceAmount");
-            String legalReceiptSerialCode = res.getString("legalReceiptSerialCode");
+            array = new String[11];
+            array[0] = res.getString("BaseAmount");
+            array[1] = res.getString("childAmount");
+            array[2] = res.getString("maritalStatusAmount");
+            array[3] = res.getString("workExperienceAmount");
+            array[4] = res.getString("extraWorkTimeAmount");
+            array[5] = res.getString("totalAdditions");
+            array[6] = res.getString("totalDeductions");
+            array[7] = res.getString("finalSalary");
+            array[8] = res.getString("taxAmount");
+            array[9] = res.getString("insuranceAmount");
+            array[10] = res.getString("legalReceiptSerialCode");
         }
+        return DataBaseTransfer.dbReadLegalReceipt(array);
     }
 
     public void createTablePayRate() throws SQLException {
@@ -291,14 +299,15 @@ public class DataBaseHelper {
     public void readFromTablePayRate(String serialNumber) throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = serialNumber");
 
-        double BaseRate = res.getDouble("BaseRate");
-        double childRate = res.getDouble("childRate");
-        double maritalStatusRate = res.getDouble("maritalStatusRate");
-        double WorkExperienceRate = res.getDouble("workExperienceRate");
-        double extraWorkTimeRate = res.getDouble("extraWorkTimeRate");
-        double taxRate = res.getDouble("taxRate");
-        double insuranceRate = res.getDouble("insuranceRate");
-        String payRateSerialCode = res.getString("payRateSerialCode");
+        array = new String[8];
+        array[0] = res.getString("BaseRate");
+        array[1] = res.getString("childRate");
+        array[2] = res.getString("maritalStatusRate");
+        array[3] = res.getString("workExperienceRate");
+        array[4] = res.getString("extraWorkTimeRate");
+        array[5] = res.getString("taxRate");
+        array[6] = res.getString("insuranceRate");
+        array[7] = res.getString("payRateSerialCode");
     }
 
     public static void main(String[] args) {
