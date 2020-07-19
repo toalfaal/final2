@@ -128,6 +128,8 @@ public class PostManagerDefine extends HttpServlet {
             actionController.dbSetPayRate(mkPay);
             actionController.dbSetPayRate(kPay);
             actionController.dbSetPayRate(gPay);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ManagerMain.jsp");
+            dispatcher.forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
