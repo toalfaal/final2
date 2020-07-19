@@ -27,6 +27,7 @@ public class Employee {
 //    private int totalEmployeeCount = 0;
     private String employeeSerialCode = "null";
     private String jobCategorySerialCode = "null";
+    private String cardSerialNumber = "null";
 
     public Employee() {
 
@@ -204,6 +205,14 @@ public class Employee {
         this.jobCategorySerialCode = jobCategorySerialCode;
     }
 
+    public String getCardSerialNumber() {
+        return cardSerialNumber;
+    }
+
+    public void setCardSerialNumber(String cardSerialNumber) {
+        this.cardSerialNumber = cardSerialNumber;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -220,7 +229,13 @@ public class Employee {
                 ", employeeIDNumber=" + employeeIDNumber +
                 ", childCount=" + childCount +
                 ", maritalStatus=" + maritalStatus +
+                ", categoryName_Persian='" + categoryName_Persian + '\'' +
+                ", categoryName_English='" + categoryName_English + '\'' +
+                ", postName_Persian='" + postName_Persian + '\'' +
+                ", postName_English='" + postName_English + '\'' +
                 ", employeeSerialCode='" + employeeSerialCode + '\'' +
+                ", jobCategorySerialCode='" + jobCategorySerialCode + '\'' +
+                ", cardSerialNumber='" + cardSerialNumber + '\'' +
                 '}';
     }
 }

@@ -1,16 +1,38 @@
+package AccountingSystem;
 
 public class DataBaseTransfer {
 
+    Employee employee = new Employee();
+    PayRate payRate = new PayRate();
+    LegalReceipt legalReceipt = new LegalReceipt();
+    JobCategory jobCategory = new JobCategory();
+
     //constructor
+    public DataBaseTransfer(Employee employee) {
+        this.employee = employee;
+    }
+
+    public DataBaseTransfer(PayRate payRate) {
+        this.payRate = payRate;
+    }
+
+    public DataBaseTransfer(LegalReceipt legalReceipt) {
+        this.legalReceipt = legalReceipt;
+    }
+
+    public DataBaseTransfer(JobCategory jobCategory) {
+        this.jobCategory = jobCategory;
+    }
+
     public DataBaseTransfer() {
 
     }
 
     //methods
 
-    public String[] dbWriteEmployee(Employee employee) {
+    public String[] dbWriteEmployee() {
 
-        String[] array = new String[19];
+        String[] array = new String[20];
         array[0] = employee.getName_Persian();
         array[1] = employee.getLastName_Persian();
         array[2] = employee.getName_English();
@@ -30,12 +52,13 @@ public class DataBaseTransfer {
         array[16] = employee.getPostName_English();
         array[17] = employee.getEmployeeSerialCode();
         array[18] = employee.getJobCategorySerialCode();
+        array[19] = employee.getCardSerialNumber();
         return array;
     }
 
-    public Employee dbReadEmployee(String[] array) {
+    public static Employee dbReadEmployee(String[] array) {
 
-        if (array.length == 19) {
+        if (array.length == 20) {
             Employee returnEmployee = new Employee();
             returnEmployee.setName_Persian(array[0]);
             returnEmployee.setLastName_Persian(array[1]);
@@ -56,13 +79,14 @@ public class DataBaseTransfer {
             returnEmployee.setPostName_English(array[16]);
             returnEmployee.setEmployeeSerialCode(array[17]);
             returnEmployee.setJobCategorySerialCode(array[18]);
+            returnEmployee.setCardSerialNumber(array[19]);
             return returnEmployee;
         } else {
             return new Employee();
         }
     }
 
-    public String[] dbWritePayRate(PayRate payRate) {
+    public String[] dbWritePayRate() {
 
         String[] array = new String[8];
         array[0] = String.valueOf(payRate.getBaseRate());
@@ -76,7 +100,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public PayRate dbReadPayRate(String[] array) {
+    public static PayRate dbReadPayRate(String[] array) {
 
         if (array.length == 8) {
             PayRate returnPayRate = new PayRate();
@@ -94,7 +118,7 @@ public class DataBaseTransfer {
         }
     }
 
-    public String[] dbWriteLegalReceipt(LegalReceipt legalReceipt) {
+    public String[] dbWriteLegalReceipt() {
 
         String[] array = new String[11];
         array[0] = String.valueOf(legalReceipt.getBaseAmount());
@@ -111,7 +135,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public LegalReceipt dbReadLegalReceipt(String[] array) {
+    public static LegalReceipt dbReadLegalReceipt(String[] array) {
 
         if (array.length == 11) {
             LegalReceipt returnLegalReceipt = new LegalReceipt();
@@ -132,7 +156,7 @@ public class DataBaseTransfer {
         }
     }
 
-    public String[] dbWriteLJobCategory(JobCategory jobCategory) {
+    public String[] dbWriteLJobCategory() {
 
         String[] array = new String[5];
 
@@ -145,7 +169,7 @@ public class DataBaseTransfer {
         return array;
     }
 
-    public JobCategory dbReadJobCategory(String[] array) {
+    public static JobCategory dbReadJobCategory(String[] array) {
 
         if (array.length == 5) {
             JobCategory returnJobCategory = new JobCategory();
@@ -159,5 +183,6 @@ public class DataBaseTransfer {
             return new JobCategory();
         }
     }
+
 
 }

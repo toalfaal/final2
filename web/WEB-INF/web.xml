@@ -58,7 +58,7 @@
         <servlet-name>requestManager</servlet-name>
         <servlet-class>Server.RequestManager</servlet-class>
         <init-param>
-            <param-name>adminUsername</param-name>
+            <param-name>admin</param-name>
             <param-value>admin</param-value>
         </init-param>
     </servlet>
@@ -73,6 +73,14 @@
     <servlet-mapping>
         <servlet-name>test</servlet-name>
         <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>postManagerDefine</servlet-name>
+        <servlet-class>Server.PostManagerDefine</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>postManagerDefine</servlet-name>
+        <url-pattern>/submitDefine</url-pattern>
     </servlet-mapping>
 
 

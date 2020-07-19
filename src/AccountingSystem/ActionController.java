@@ -1,5 +1,7 @@
 package AccountingSystem;
 
+import DataBase.DataBaseHelper;
+
 import java.util.ArrayList;
 
 public class ActionController {
@@ -103,17 +105,120 @@ public class ActionController {
     }
 
 
-    public void addJobCategoryToEmployee(String categoryName_Persian, String postName_Persian) {
-
+    public void addJobCategoryToEmployee(String categoryName_Persian, String postName_Persian, Employee employee) throws Exception {
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        JobCategory jobCategory = dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian, postName_Persian);
+        employee.setCategoryName_Persian(jobCategory.getCategoryName_Persian());
+        employee.setCategoryName_English(jobCategory.getCategoryName_English());
+        employee.setPostName_Persian(jobCategory.getPostName_Persian());
+        employee.setPostName_English(jobCategory.getPostName_English());
+        employee.setJobCategorySerialCode(jobCategory.getJobCategorySerialCode());
     }
 
+
+    public static boolean isStringOnlyAlphabet(String str) {
+        return ((str != null)
+                && (!str.equals(""))
+                && (str.matches("^[a-zA-Z]*$")));
+    }
 
     public int calculateWorkExperienceMonth(Employee employee) {
         return 15;
     }
 
     public int calculateExtraWorkTimeMinute(Employee employee) {
-        return 180;
+        return 0;
     }
+
+    //read from database
+
+    public Employee dbGetEmployeeByNamePersian(String fName, String lName) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableForEmployeeByPN(fName, lName);
+    }
+
+    public Employee dbGetEmployeeByNameEnglish(String fName, String lName) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableForEmployeeByEN(fName, lName);
+    }
+
+    public Employee dbGetEmployeeBySerialCode(String serialCode) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return null;
+    }
+
+    public Employee dbGetEmployeeByEmployeeSerialCode(String serialCode) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableForEmployeeByEmployeeIDNumber(serialCode);
+    }
+
+    public Employee dbGetEmployeeByCardSerialCode(String serialCode) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableForEmployeeByCardNumber(serialCode);
+    }
+
+
+    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian, postName_Persian) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian, postName_Persian);
+    }
+
+    public JobCategory dbGetJobCategoryByNameEnglish(String categoryName_English, String postName_English) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableJobCategoryByEN(categoryName_English, postName_English);
+    }
+
+    public JobCategory dbGetJobCategoryBySerialCode(String serialCode) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTableJobCategoryByJCSC(serialCode);
+    }
+
+    public LegalReceipt dbGetLegalReceipt(String serialCode) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readTableLegalReceipt(serialCode);
+    }
+
+    public PayRate dbGetPayRate(String serialCode) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
+        return dataBaseHelper.readFromTablePayRate(serialCode);
+    }
+
+    //write to database
+
+    public void dbSetEmployee(Employee employee) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer(employee);
+        dataBaseHelper.writeToTableForEmployee(dataBaseTransfer.dbWriteEmployee());
+    }
+
+    public void dbSetPayRate(PayRate payRate) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer(payRate);
+        dataBaseHelper.writeToTablePayRate(dataBaseTransfer.dbWritePayRate());
+    }
+
+    public void dbSetJobCategory(JobCategory jobCategory) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer(jobCategory);
+        dataBaseHelper.writeToTableJobCategory(dataBaseTransfer.dbWriteLJobCategory());
+    }
+
+    public void dbSetLegalReceipt(LegalReceipt legalReceipt) throws Exception {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        DataBaseTransfer dataBaseTransfer = new DataBaseTransfer(legalReceipt);
+        dataBaseHelper.writeToTableLegalReceipt(dataBaseTransfer.dbWriteLegalReceipt());
+    }
+
 
 }
