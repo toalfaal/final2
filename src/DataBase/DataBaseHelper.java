@@ -6,6 +6,7 @@ import AccountingSystem.JobCategory;
 import AccountingSystem.LegalReceipt;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DataBaseHelper {
 
@@ -203,9 +204,27 @@ public class DataBaseHelper {
                 "VALUES (array[0],array[1],array[2],array[3],array[4]) ");
     }
 
+    public ArrayList<String> getPersinCategory() throws SQLException{
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory");
+        ArrayList<String> temp = new ArrayList<String>();
+        while(res.next()){
+            temp.add(res.getString("categoryNamePersian"));
+        }
+        return temp;
+    }
+
+    public ArrayList<String> getEnglishCategory() throws SQLException{
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory");
+        ArrayList<String> temp = new ArrayList<String>();
+        while(res.next()){
+            temp.add(res.getString("categoryNameEnglish"));
+        }
+        return temp;
+    }
+
     public JobCategory readFromTableJobCategoryByPN(String persianName) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE categoryNamePersian = persianName");
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory WHERE categoryNamePersian = persianName");
 
         while (res.next()) {
 
@@ -309,6 +328,8 @@ public class DataBaseHelper {
         array[6] = res.getString("insuranceRate");
         array[7] = res.getString("payRateSerialCode");
     }
+
+
 
     public static void main(String[] args) {
 
