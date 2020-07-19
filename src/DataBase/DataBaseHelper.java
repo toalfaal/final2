@@ -1,6 +1,9 @@
 package DataBase;
 
+import AccountingSystem.*;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DataBaseHelper {
 
@@ -9,12 +12,12 @@ public class DataBaseHelper {
     private String url = "jdbc:mysql://localhost/3306/";
     private String username = "root";
     private String password = "";
+    private String[] array;
 
     public DataBaseHelper() {
         try {
             getConnection();
             createTableForEmployee();
-            writeToTableForEmployee();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -34,200 +37,236 @@ public class DataBaseHelper {
         stt.execute("DROP TABLE IF EXISTS Employee");
         stt.execute("CREATE TABLE Employee (id BIGINT NOT NULL AUTO_INCREMENT , fName, lName, eFName, eLName," +
                 " idNumber, cellphoneNumber, homeNumber, employmentYear, employmentMonth, employmentDay, employmentIDNumber, childCount," +
-                "maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode, PRIMARY KEY(id))");
+                "maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode, cardNumber, PRIMARY KEY(id))");
     }
 
-    public void writeToTableForEmployee() throws SQLException {
+
+    public void writeToTableForEmployee(String[] emp) throws SQLException {
         stt.execute("INSERT INTO Employee (fName, lName, eFName, eLName," +
                 "idNumber, cellphoneNumber, homeNumber, employmentYear, employmentMonth, employmentDay, employmentIDNumber, childCount" +
-                " maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode) VALUES ...");
-        //nages
+                " maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode, cardNumber)" +
+                " VALUES (emp[0],emp[1],emp[2],emp[3],emp[4],emp[5],emp[6],emp[7],emp[8],emp[9],emp[10],emp[11],emp[12],emp[13],emp[14],emp[15]" +
+                ",emp[16],emp[17],emp[18],emp[19])");
     }
 
-    public void readFromTableForEmployeeByPN(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+
+    public Employee readFromTableForEmployeeByPN(String PFName, String PLName) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE (fName = PFName && lName = PLName)");
 
         while (res.next()) {
-            String namePersian = ("name persian//" + res.getString("fName"));
-            String lastNamePersian = "lastname persian//" + res.getString("lName");
-            String nameEnglish = "name english//" + res.getString("eFName");
-            String lastNameEnglish = "lastname english//" + res.getString("eLName");
-            String idNumber = "id number//" + res.getString("idNumber");
-            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
-            String homeNumber = "home number//" + res.getString("homeNumber");
-            String employmentYear = "employment year//" + res.getInt("employmentYear");
-            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
-            String employmentDay = "employment day//" + res.getInt("employmentDay");
-            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
-            String childCount = "child count//" + res.getInt("childCount");
-            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
-            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
-            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
-            String postNamePersian = "post name persian//" + res.getString("postNameP");
-            String postNameEnglish = "post name english//" + res.getString("postNameE");
-            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
-            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+            array = new String[19];
+            array[0] = res.getString("fName");
+            array[1] = res.getString("lName");
+            array[2] = res.getString("eFName");
+            array[3] = res.getString("eLName");
+            array[4] = res.getString("idNumber");
+            array[5] = res.getString("cellphoneNumber");
+            array[6] = res.getString("homeNumber");
+            array[7] = res.getString("employmentYear");
+            array[8] = res.getString("employmentMonth");
+            array[9] = res.getString("employmentDay");
+            array[10] = res.getString("employmentIDNumber");
+            array[11] = res.getString("childCount");
+            array[12] = res.getString("maritalStatus");
+            array[13] = res.getString("categoryNameP");
+            array[14] = res.getString("categoryNameE");
+            array[15] = res.getString("postNameP");
+            array[16] = res.getString("postNameE");
+            array[17] = res.getString("employeeSerialCode");
+            array[18] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadEmployee(array);
     }
 
-    public void readFromTableForEmployeeByEN(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+    public Employee readFromTableForEmployeeByEN(String EFName, String ELName) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE (eFName = EFName && eLName = ELNAme)");
 
         while (res.next()) {
-            String namePersian = ("name persian//" + res.getString("fName"));
-            String lastNamePersian = "lastname persian//" + res.getString("lName");
-            String nameEnglish = "name english//" + res.getString("eFName");
-            String lastNameEnglish = "lastname english//" + res.getString("eLName");
-            String idNumber = "id number//" + res.getString("idNumber");
-            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
-            String homeNumber = "home number//" + res.getString("homeNumber");
-            String employmentYear = "employment year//" + res.getInt("employmentYear");
-            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
-            String employmentDay = "employment day//" + res.getInt("employmentDay");
-            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
-            String childCount = "child count//" + res.getInt("childCount");
-            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
-            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
-            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
-            String postNamePersian = "post name persian//" + res.getString("postNameP");
-            String postNameEnglish = "post name english//" + res.getString("postNameE");
-            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
-            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+            array = new String[19];
+            array[0] = res.getString("fName");
+            array[1] = res.getString("lName");
+            array[2] = res.getString("eFName");
+            array[3] = res.getString("eLName");
+            array[4] = res.getString("idNumber");
+            array[5] = res.getString("cellphoneNumber");
+            array[6] = res.getString("homeNumber");
+            array[7] = res.getString("employmentYear");
+            array[8] = res.getString("employmentMonth");
+            array[9] = res.getString("employmentDay");
+            array[10] = res.getString("employmentIDNumber");
+            array[11] = res.getString("childCount");
+            array[12] = res.getString("maritalStatus");
+            array[13] = res.getString("categoryNameP");
+            array[14] = res.getString("categoryNameE");
+            array[15] = res.getString("postNameP");
+            array[16] = res.getString("postNameE");
+            array[17] = res.getString("employeeSerialCode");
+            array[18] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadEmployee(array);
     }
 
-    public void readFromTableForEmployeeByIDNumber(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+    public Employee readFromTableForEmployeeByEmployeeIDNumber(String employeeIDNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employmentIDNumber = employeeIDNumber");
 
         while (res.next()) {
-            String namePersian = ("name persian//" + res.getString("fName"));
-            String lastNamePersian = "lastname persian//" + res.getString("lName");
-            String nameEnglish = "name english//" + res.getString("eFName");
-            String lastNameEnglish = "lastname english//" + res.getString("eLName");
-            String idNumber = "id number//" + res.getString("idNumber");
-            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
-            String homeNumber = "home number//" + res.getString("homeNumber");
-            String employmentYear = "employment year//" + res.getInt("employmentYear");
-            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
-            String employmentDay = "employment day//" + res.getInt("employmentDay");
-            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
-            String childCount = "child count//" + res.getInt("childCount");
-            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
-            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
-            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
-            String postNamePersian = "post name persian//" + res.getString("postNameP");
-            String postNameEnglish = "post name english//" + res.getString("postNameE");
-            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
-            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+            array = new String[19];
+            array[0] = res.getString("fName");
+            array[1] = res.getString("lName");
+            array[2] = res.getString("eFName");
+            array[3] = res.getString("eLName");
+            array[4] = res.getString("idNumber");
+            array[5] = res.getString("cellphoneNumber");
+            array[6] = res.getString("homeNumber");
+            array[7] = res.getString("employmentYear");
+            array[8] = res.getString("employmentMonth");
+            array[9] = res.getString("employmentDay");
+            array[10] = res.getString("employmentIDNumber");
+            array[11] = res.getString("childCount");
+            array[12] = res.getString("maritalStatus");
+            array[13] = res.getString("categoryNameP");
+            array[14] = res.getString("categoryNameE");
+            array[15] = res.getString("postNameP");
+            array[16] = res.getString("postNameE");
+            array[17] = res.getString("employeeSerialCode");
+            array[18] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadEmployee(array);
     }
-    public void readFromTableForEmployeejobCategorySerial(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+
+    public Employee readFromTableForEmployeeSerialCode(String serialCode) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialCode");
 
         while (res.next()) {
-            String namePersian = ("name persian//" + res.getString("fName"));
-            String lastNamePersian = "lastname persian//" + res.getString("lName");
-            String nameEnglish = "name english//" + res.getString("eFName");
-            String lastNameEnglish = "lastname english//" + res.getString("eLName");
-            String idNumber = "id number//" + res.getString("idNumber");
-            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
-            String homeNumber = "home number//" + res.getString("homeNumber");
-            String employmentYear = "employment year//" + res.getInt("employmentYear");
-            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
-            String employmentDay = "employment day//" + res.getInt("employmentDay");
-            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
-            String childCount = "child count//" + res.getInt("childCount");
-            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
-            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
-            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
-            String postNamePersian = "post name persian//" + res.getString("postNameP");
-            String postNameEnglish = "post name english//" + res.getString("postNameE");
-            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
-            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+            array = new String[19];
+            array[0] = res.getString("fName");
+            array[1] = res.getString("lName");
+            array[2] = res.getString("eFName");
+            array[3] = res.getString("eLName");
+            array[4] = res.getString("idNumber");
+            array[5] = res.getString("cellphoneNumber");
+            array[6] = res.getString("homeNumber");
+            array[7] = res.getString("employmentYear");
+            array[8] = res.getString("employmentMonth");
+            array[9] = res.getString("employmentDay");
+            array[10] = res.getString("employmentIDNumber");
+            array[11] = res.getString("childCount");
+            array[12] = res.getString("maritalStatus");
+            array[13] = res.getString("categoryNameP");
+            array[14] = res.getString("categoryNameE");
+            array[15] = res.getString("postNameP");
+            array[16] = res.getString("postNameE");
+            array[17] = res.getString("employeeSerialCode");
+            array[18] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadEmployee(array);
     }
 
-    public void readFromTableForEmployeeByCardNumber(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE employeeSerialCode = serialNumber");
+    public Employee readFromTableForEmployeeByCardNumber(String cardNumber) throws SQLException {
+        ResultSet res = stt.executeQuery("SELECT * FROM Employee WHERE cardNumber = cardNumber");
 
         while (res.next()) {
-            String namePersian = ("name persian//" + res.getString("fName"));
-            String lastNamePersian = "lastname persian//" + res.getString("lName");
-            String nameEnglish = "name english//" + res.getString("eFName");
-            String lastNameEnglish = "lastname english//" + res.getString("eLName");
-            String idNumber = "id number//" + res.getString("idNumber");
-            String cellphoneNumber ="cellphone number//" + res.getString("cellphoneNumber");
-            String homeNumber = "home number//" + res.getString("homeNumber");
-            String employmentYear = "employment year//" + res.getInt("employmentYear");
-            String employmentMonth = "employment Month//" + res.getInt("employmentMonth");
-            String employmentDay = "employment day//" + res.getInt("employmentDay");
-            String employmentIDNumbe = "employment id number//" + res.getLong("employmentIDNumbe");
-            String childCount = "child count//" + res.getInt("childCount");
-            String maritalStatus = "marital status//" + res.getBoolean("maritalStatus");
-            String categoryNamePersian = "category Name Persian//" + res.getString("categoryNameP");
-            String categoryNameEnglish = "category Name english//" + res.getString("categoryNameE");
-            String postNamePersian = "post name persian//" + res.getString("postNameP");
-            String postNameEnglish = "post name english//" + res.getString("postNameE");
-            String employeeSerialCode = "employee serial code//" + res.getString("employeeSerialCode");
-            String jobCategorySerialCode = "job vategory serial code//" + res.getString("jobCategorySerialCode");
+            array = new String[19];
+            array[0] = res.getString("fName");
+            array[1] = res.getString("lName");
+            array[2] = res.getString("eFName");
+            array[3] = res.getString("eLName");
+            array[4] = res.getString("idNumber");
+            array[5] = res.getString("cellphoneNumber");
+            array[6] = res.getString("homeNumber");
+            array[7] = res.getString("employmentYear");
+            array[8] = res.getString("employmentMonth");
+            array[9] = res.getString("employmentDay");
+            array[10] = res.getString("employmentIDNumber");
+            array[11] = res.getString("childCount");
+            array[12] = res.getString("maritalStatus");
+            array[13] = res.getString("categoryNameP");
+            array[14] = res.getString("categoryNameE");
+            array[15] = res.getString("postNameP");
+            array[16] = res.getString("postNameE");
+            array[17] = res.getString("employeeSerialCode");
+            array[18] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadEmployee(array);
     }
-
-
 
     public void createTableJobCategory() throws SQLException {
         stt.execute("DROP TABLE IF EXISTS jobCategory");
-        stt.execute("CREATE TABLE jobCategory (id BIGINT, categoryNamePersian, categoryNameEnglish, postNamePersian, postNameEnglish, jobCategorySerialCode, PRIMARY KEY(id)");
+        stt.execute("CREATE TABLE jobCategory (id BIGINT, categoryNamePersian, categoryNameEnglish, postNamePersian," +
+                " postNameEnglish, jobCategorySerialCode, PRIMARY KEY(id)");
     }
 
-    public void writeToTableJobCategory() throws SQLException {
+    public void writeToTableJobCategory(String[] array) throws SQLException {
         stt.execute("INSERT INTO jobCategory (categoryNamePersian, categoryNameEnglish, postNamePersian, postNameEnglish, jobCategorySerialCode)" +
-                "VALUES ... ");
-        //NAGES
+                "VALUES (array[0],array[1],array[2],array[3],array[4]) ");
     }
 
-    public void readFromTableJobCategoryByPN(String serialNumber) throws SQLException {
+    public ArrayList<String> getPersinCategory() throws SQLException{
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory");
+        ArrayList<String> temp = new ArrayList<String>();
+        while(res.next()){
+            temp.add(res.getString("categoryNamePersian"));
+        }
+        return temp;
+    }
+
+    public ArrayList<String> getEnglishCategory() throws SQLException{
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory");
+        ArrayList<String> temp = new ArrayList<String>();
+        while(res.next()){
+            temp.add(res.getString("categoryNameEnglish"));
+        }
+        return temp;
+    }
+
+    public JobCategory readFromTableJobCategoryByPN(String persianName) throws SQLException {
+
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory WHERE categoryNamePersian = persianName");
+
+        while (res.next()) {
+
+            array = new String[5];
+            array[0] = res.getString("categoryNamePersian");
+            array[1] = res.getString("categoryNameEnglish");
+            array[2] = res.getString("postNamePersian");
+            array[3] = res.getString("postNameEnglish");
+            array[4] = res.getString("jobCategorySerialCode");
+        }
+        return DataBaseTransfer.dbReadJobCategory(array);
+    }
+
+
+    public JobCategory readFromTableJobCategoryByEN(String englishName) throws SQLException {
+
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE categoryNameEnglish = englishName");
+
+        while (res.next()) {
+
+            array = new String[5];
+            array[0] = res.getString("categoryNamePersian");
+            array[1] = res.getString("categoryNameEnglish");
+            array[2] = res.getString("postNamePersian");
+            array[3] = res.getString("postNameEnglish");
+            array[4] = res.getString("jobCategorySerialCode");
+        }
+        return DataBaseTransfer.dbReadJobCategory(array);
+    }
+
+    public JobCategory readFromTableJobCategoryByJCSC(String serialNumber) throws SQLException {
 
         ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
 
         while (res.next()) {
 
-            String categoryNamePersian = res.getString("categoryNamePersian");
-            String categoryNameEnglish = ("categoryNameEnglish");
-            String postNamePersian = ("postNamePersian");
-            String postNameEnglish = ("postNameEnglish");
-            String JobCategorySerialCode = ("jobCategorySerialCode");
+            array = new String[5];
+            array[0] = res.getString("categoryNamePersian");
+            array[1] = res.getString("categoryNameEnglish");
+            array[2] = res.getString("postNamePersian");
+            array[3] = res.getString("postNameEnglish");
+            array[4] = res.getString("jobCategorySerialCode");
         }
+        return DataBaseTransfer.dbReadJobCategory(array);
     }
-
-    public void readFromTableJobCategoryByEN(String serialNumber) throws SQLException {
-
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
-
-        while (res.next()) {
-
-            String categoryNamePersian = res.getString("categoryNamePersian");
-            String categoryNameEnglish = ("categoryNameEnglish");
-            String postNamePersian = ("postNamePersian");
-            String postNameEnglish = ("postNameEnglish");
-            String JobCategorySerialCode = ("jobCategorySerialCode");
-        }
-    }
-
-    public void readFromTableJobCategoryByJCSC(String serialNumber) throws SQLException {
-
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
-
-        while (res.next()) {
-
-            String categoryNamePersian = res.getString("categoryNamePersian");
-            String categoryNameEnglish = ("categoryNameEnglish");
-            String postNamePersian = ("postNamePersian");
-            String postNameEnglish = ("postNameEnglish");
-            String JobCategorySerialCode = ("jobCategorySerialCode");
-        }
-    }
-
 
 
     public void CreateTableLegalReceipt() throws SQLException {
@@ -236,28 +275,31 @@ public class DataBaseHelper {
                 "totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode, PRIMARY KEY(id))");
     }
 
-    public void writeToTableLegalReceipt() throws SQLException {
+    public void writeToTableLegalReceipt(String[] arrays) throws SQLException {
         stt.execute("INSERT INTO LegalReceipt (BaseAmount, childAmount, maritalStatusAmount, workExperienceAmount, extraWorkTimeAmount," +
-                " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES...");
+                " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES (arrays[0],arrays[1]" +
+                ",arrays[2],arrays[3],arrays[4],arrays[5],arrays[6],arrays[7],arrays[8],arrays[9],arrays[10])");
     }
 
-    public void readTableLegalReceipt(String serialNumber) throws SQLException {
+    public LegalReceipt readTableLegalReceipt(String serialNumber) throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM LegalReceipt WHERE legalReceiptSerialCode = serialNumber");
 
         while (res.next()) {
 
-            double BaseAmount = res.getDouble("BaseAmount");
-            double childAmount = res.getDouble("childAmount");
-            double maritalStatusAmount = res.getDouble("maritalStatusAmount");
-            double workExperienceAmount = res.getDouble("workExperienceAmount");
-            double extraWorkTimeAmount = res.getDouble("extraWorkTimeAmount");
-            double totalAdditions = res.getDouble("totalAdditions");
-            double totalDeductions = res.getDouble("totalDeductions");
-            double finalSalary = res.getDouble("finalSalary");
-            double taxAmount = res.getDouble("taxAmount");
-            double insuranceAmount = res.getDouble("insuranceAmount");
-            String legalReceiptSerialCode = res.getString("legalReceiptSerialCode");
+            array = new String[11];
+            array[0] = res.getString("BaseAmount");
+            array[1] = res.getString("childAmount");
+            array[2] = res.getString("maritalStatusAmount");
+            array[3] = res.getString("workExperienceAmount");
+            array[4] = res.getString("extraWorkTimeAmount");
+            array[5] = res.getString("totalAdditions");
+            array[6] = res.getString("totalDeductions");
+            array[7] = res.getString("finalSalary");
+            array[8] = res.getString("taxAmount");
+            array[9] = res.getString("insuranceAmount");
+            array[10] = res.getString("legalReceiptSerialCode");
         }
+        return DataBaseTransfer.dbReadLegalReceipt(array);
     }
 
     public void createTablePayRate() throws SQLException {
@@ -266,23 +308,29 @@ public class DataBaseHelper {
                 " extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode, PRIMARY KEY(id))");
     }
 
-    public void writeToTablePayRate() throws SQLException {
+    public void writeToTablePayRate(String[] arrays) throws SQLException {
         stt.execute("INSERT INTO PayRate (BaseRate, childRate, maritalStatusRate, workExperienceRate," +
-                "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES ...");
+                "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES (arrays[0],arrays[1],arrays[2],arrays[3[]" +
+                ",arrays[4],arrays[5],arrays[6],arrays[7])");
     }
 
-    public void readFromTablePayRate(String serialNumber) throws SQLException {
+    public PayRate readFromTablePayRate(String serialNumber) throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = serialNumber");
-
-        double BaseRate = res.getDouble("BaseRate");
-        double childRate = res.getDouble("childRate");
-        double maritalStatusRate = res.getDouble("maritalStatusRate");
-        double WorkExperienceRate = res.getDouble("workExperienceRate");
-        double extraWorkTimeRate = res.getDouble("extraWorkTimeRate");
-        double taxRate = res.getDouble("taxRate");
-        double insuranceRate = res.getDouble("insuranceRate");
-        String payRateSerialCode = res.getString("payRateSerialCode");
+        while (res.next()) {
+            array = new String[8];
+            array[0] = res.getString("BaseRate");
+            array[1] = res.getString("childRate");
+            array[2] = res.getString("maritalStatusRate");
+            array[3] = res.getString("workExperienceRate");
+            array[4] = res.getString("extraWorkTimeRate");
+            array[5] = res.getString("taxRate");
+            array[6] = res.getString("insuranceRate");
+            array[7] = res.getString("payRateSerialCode");
+        }
+        return DataBaseTransfer.dbReadPayRate(array);
     }
+
+
 
     public static void main(String[] args) {
 
