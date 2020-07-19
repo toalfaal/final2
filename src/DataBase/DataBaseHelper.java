@@ -1,9 +1,6 @@
 package DataBase;
 
-import AccountingSystem.DataBaseTransfer;
-import AccountingSystem.Employee;
-import AccountingSystem.JobCategory;
-import AccountingSystem.LegalReceipt;
+import AccountingSystem.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -278,9 +275,10 @@ public class DataBaseHelper {
                 "totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode, PRIMARY KEY(id))");
     }
 
-    public void writeToTableLegalReceipt() throws SQLException {
+    public void writeToTableLegalReceipt(String[] arrays) throws SQLException {
         stt.execute("INSERT INTO LegalReceipt (BaseAmount, childAmount, maritalStatusAmount, workExperienceAmount, extraWorkTimeAmount," +
-                " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES...");
+                " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES (arrays[0],arrays[1]" +
+                ",arrays[2],arrays[3],arrays[4],arrays[5],arrays[6],arrays[7],arrays[8],arrays[9],arrays[10])");
     }
 
     public LegalReceipt readTableLegalReceipt(String serialNumber) throws SQLException {
@@ -310,23 +308,26 @@ public class DataBaseHelper {
                 " extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode, PRIMARY KEY(id))");
     }
 
-    public void writeToTablePayRate() throws SQLException {
+    public void writeToTablePayRate(String[] arrays) throws SQLException {
         stt.execute("INSERT INTO PayRate (BaseRate, childRate, maritalStatusRate, workExperienceRate," +
-                "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES ...");
+                "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES (arrays[0],arrays[1],arrays[2],arrays[3[]" +
+                ",arrays[4],arrays[5],arrays[6],arrays[7])");
     }
 
-    public void readFromTablePayRate(String serialNumber) throws SQLException {
+    public PayRate readFromTablePayRate(String serialNumber) throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = serialNumber");
-
-        array = new String[8];
-        array[0] = res.getString("BaseRate");
-        array[1] = res.getString("childRate");
-        array[2] = res.getString("maritalStatusRate");
-        array[3] = res.getString("workExperienceRate");
-        array[4] = res.getString("extraWorkTimeRate");
-        array[5] = res.getString("taxRate");
-        array[6] = res.getString("insuranceRate");
-        array[7] = res.getString("payRateSerialCode");
+        while (res.next()) {
+            array = new String[8];
+            array[0] = res.getString("BaseRate");
+            array[1] = res.getString("childRate");
+            array[2] = res.getString("maritalStatusRate");
+            array[3] = res.getString("workExperienceRate");
+            array[4] = res.getString("extraWorkTimeRate");
+            array[5] = res.getString("taxRate");
+            array[6] = res.getString("insuranceRate");
+            array[7] = res.getString("payRateSerialCode");
+        }
+        return DataBaseTransfer.dbReadPayRate(array);
     }
 
 
