@@ -7,7 +7,7 @@
 
 
 <%
-    RequestDispatcher view = request.getRequestDispatcher("welcom-page.jsp");
+    RequestDispatcher view = request.getRequestDispatcher("WelcomePage.jsp");
     view.forward(request, response);
 %>
 
