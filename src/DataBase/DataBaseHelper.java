@@ -193,11 +193,11 @@ public class DataBaseHelper {
     public void createTableJobCategory() throws SQLException {
         stt.execute("DROP TABLE IF EXISTS jobCategory");
         stt.execute("CREATE TABLE jobCategory (id BIGINT, categoryNamePersian, categoryNameEnglish, postNamePersian," +
-                " postNameEnglish, jobCategorySerialCode, PRIMARY KEY(id)");
+                " postNameEnglish, jobCategorySerial_Code, PRIMARY KEY(id)");
     }
 
     public void writeToTableJobCategory(String[] array) throws SQLException {
-        stt.execute("INSERT INTO jobCategory (categoryNamePersian, categoryNameEnglish, postNamePersian, postNameEnglish, jobCategorySerialCode)" +
+        stt.execute("INSERT INTO jobCategory (categoryNamePersian, categoryNameEnglish, postNamePersian, postNameEnglish, jobCategorySerial_Code)" +
                 "VALUES (array[0],array[1],array[2],array[3],array[4]) ");
     }
 
@@ -219,9 +219,9 @@ public class DataBaseHelper {
         return temp;
     }
 
-    public JobCategory readFromTableJobCategoryByPN(String persianName) throws SQLException {
+    public JobCategory readFromTableJobCategoryByPN(String persianName, String postNamePersian) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory WHERE categoryNamePersian = persianName");
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory WHERE (categoryNamePersian = persianName && postNamePersian = postNamePersian");
 
         while (res.next()) {
 
@@ -230,15 +230,15 @@ public class DataBaseHelper {
             array[1] = res.getString("categoryNameEnglish");
             array[2] = res.getString("postNamePersian");
             array[3] = res.getString("postNameEnglish");
-            array[4] = res.getString("jobCategorySerialCode");
+            array[4] = res.getString("jobCategorySerial_Code");
         }
         return DataBaseTransfer.dbReadJobCategory(array);
     }
 
 
-    public JobCategory readFromTableJobCategoryByEN(String englishName) throws SQLException {
+    public JobCategory readFromTableJobCategoryByEN(String englishName, String postNameEnglish) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE categoryNameEnglish = englishName");
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE (categoryNameEnglish = englishName && postNameEnglish=postNameEnglish");
 
         while (res.next()) {
 
@@ -247,14 +247,14 @@ public class DataBaseHelper {
             array[1] = res.getString("categoryNameEnglish");
             array[2] = res.getString("postNamePersian");
             array[3] = res.getString("postNameEnglish");
-            array[4] = res.getString("jobCategorySerialCode");
+            array[4] = res.getString("jobCategorySeria_lCode");
         }
         return DataBaseTransfer.dbReadJobCategory(array);
     }
 
     public JobCategory readFromTableJobCategoryByJCSC(String serialNumber) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerialCode = serialNumber");
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE jobCategorySerial_Code = serialNumber");
 
         while (res.next()) {
 
@@ -263,7 +263,7 @@ public class DataBaseHelper {
             array[1] = res.getString("categoryNameEnglish");
             array[2] = res.getString("postNamePersian");
             array[3] = res.getString("postNameEnglish");
-            array[4] = res.getString("jobCategorySerialCode");
+            array[4] = res.getString("jobCategorySerial_Code");
         }
         return DataBaseTransfer.dbReadJobCategory(array);
     }

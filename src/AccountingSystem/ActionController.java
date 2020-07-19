@@ -108,7 +108,7 @@ public class ActionController {
     public void addJobCategoryToEmployee(String categoryName_Persian, String postName_Persian, Employee employee) throws Exception {
         DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
-        JobCategory jobCategory = dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian);
+        JobCategory jobCategory = dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian, postName_Persian);
         employee.setCategoryName_Persian(jobCategory.getCategoryName_Persian());
         employee.setCategoryName_English(jobCategory.getCategoryName_English());
         employee.setPostName_Persian(jobCategory.getPostName_Persian());
@@ -164,16 +164,16 @@ public class ActionController {
     }
 
 
-    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian) throws Exception {
+    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian, postName_Persian) throws Exception {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
-        return dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian);
+        return dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian, postName_Persian);
     }
 
-    public JobCategory dbGetJobCategoryByNameEnglish(String categoryName_English) throws Exception {
+    public JobCategory dbGetJobCategoryByNameEnglish(String categoryName_English, String postName_English) throws Exception {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
-        return dataBaseHelper.readFromTableJobCategoryByEN(categoryName_English);
+        return dataBaseHelper.readFromTableJobCategoryByEN(categoryName_English, postName_English);
     }
 
     public JobCategory dbGetJobCategoryBySerialCode(String serialCode) throws Exception {
