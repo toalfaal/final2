@@ -19,6 +19,9 @@ public class RequestManager extends HttpServlet {
         String syntax = request.getParameter("syntax");
         String id = request.getParameter("id");
         String adminID = this.getServletConfig().getInitParameter("admin");
+        System.out.println("adminID = " + adminID);
+        System.out.println("id = " + id);
+        System.out.println("syntax = " + syntax);
         if (id != null) {
             if (id.equals(adminID)) {
                 request.setAttribute("syntax", syntax);
@@ -34,4 +37,5 @@ public class RequestManager extends HttpServlet {
         }
 
     }
+
 }

@@ -1,5 +1,8 @@
 package Server;
 
+import AccountingSystem.ActionController;
+import AccountingSystem.JobCategory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +24,16 @@ public class ManagerPageServer extends HttpServlet {
         request.setAttribute("id",id);
         RequestDispatcher dispatcher;
         switch (syntax){
+            case "submit":
+
             case "loadDefine":
                 dispatcher= request.getRequestDispatcher("ManagerDefine.jsp");
-                //loadData and pass into attribute
+                ActionController actionController = new ActionController();
+
                 dispatcher.forward(request, response);
                 break;
             case "loadChange": dispatcher= request.getRequestDispatcher("ManagerChange.jsp");
-                //loadData and pass into attribute
+                request.setAttribute("i",4);
                 dispatcher.forward(request, response);
                 break;
             case "loadAttend": dispatcher= request.getRequestDispatcher("ManagerAttend.jsp");
