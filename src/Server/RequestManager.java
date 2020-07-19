@@ -37,5 +37,27 @@ public class RequestManager extends HttpServlet {
         }
 
     }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String syntax = (String) request.getAttribute("syntax");
+        String id = (String) request.getAttribute("id");
+        String adminID = this.getServletConfig().getInitParameter("admin");
+        System.out.println("adminID = " + adminID);
+        System.out.println("id = " + id);
+        System.out.println("syntax = " + syntax);
+        if (id != null) {
+            if (id.equals(adminID)) {
+                request.setAttribute("syntax", syntax);
+                request.setAttribute("id", id);
+                ManagerPageServer managerPageServer = new ManagerPageServer();
+                managerPageServer.doPost(request, response);
+            } else {
+                request.setAttribute("syntax", syntax);
+                request.setAttribute("id", id);
+                ClientPageServer clientPageServer = new ClientPageServer();
+                clientPageServer.doPost(request, response);
+            }
+        }
+
+    }
 
 }

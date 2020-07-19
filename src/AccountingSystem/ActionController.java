@@ -164,7 +164,7 @@ public class ActionController {
     }
 
 
-    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian, postName_Persian) throws Exception {
+    public JobCategory dbGetJobCategoryByNamePersian(String categoryName_Persian, String postName_Persian) throws Exception {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         DataBaseTransfer dataBaseTransfer = new DataBaseTransfer();
         return dataBaseHelper.readFromTableJobCategoryByPN(categoryName_Persian, postName_Persian);

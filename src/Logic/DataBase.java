@@ -19,8 +19,8 @@ public class DataBase {
     //Test unit
     String[] fati = {"DA4F7714", "985367031", "Fatemeh Ghafouri", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\985367031.png", "09146633942"};
     String[] ali = {"F7D73843", "985361042", "Ali Forghani", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\985361042.png", "09145030651"};
-    String[] alinsrs = {"8A347114", "985367039", "Ali naseri", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\985361042.png", "09144787269"};
-    String[] tohid = {"F7B5BF49", "985367042", "Tihid Yaghmuri", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\985361042.png", "09148683848"};
+    String[] alinsrs = {"8A347114", "985367039", "Ali naseri", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\985367039.jpg", "09144787269"};
+    String[] tohid = {"F7B5BF49", "985367043", "Tohid Yaghmuri", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\985367043.jpg", "09148683848"};
     String[] unknown = {"", "000000000", "unknown", "file:\\C:\\Users\\jinos\\Desktop\\ideaProjects\\final2\\src\\Storage\\PNG\\0.png", ""};
 
 
@@ -44,6 +44,8 @@ public class DataBase {
     public String getID(String cardID) {
         if (cardID.equals(fati[0]))
             return fati[1];
+        else if (cardID.equals(ali[0]))
+            return ali[1];
         else if (cardID.equals(alinsrs[0]))
             return alinsrs[1];
         else if (cardID.equals(tohid[0]))

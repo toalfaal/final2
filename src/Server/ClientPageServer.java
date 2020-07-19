@@ -18,6 +18,8 @@ public class ClientPageServer extends HttpServlet {
         String id = (String) request.getAttribute("id");
         String syntax = (String) request.getAttribute("syntax");
         request.setAttribute("id",id);
+        System.out.println("ClientPageServer.doPost");
+        System.out.println("syntax = " + syntax);
         RequestDispatcher dispatcher;
         switch (syntax){
             case "loadPersonalInfo":

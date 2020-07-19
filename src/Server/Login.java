@@ -36,7 +36,11 @@ public class Login extends HttpServlet {
             if (status){
            RequestManager requestManager = new RequestManager();
            request.setAttribute("id",username);
-           requestManager.doGet(request, response);
+//           requestManager.doPost(request, response);
+                if (username.equals("admin"))
+                    response.sendRedirect("request?id=admin&syntax=load");
+                else
+                response.sendRedirect("request?id=985361042&syntax=load");
             }else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
                 request.setAttribute("status", "false");
