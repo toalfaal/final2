@@ -219,9 +219,9 @@ public class DataBaseHelper {
         return temp;
     }
 
-    public JobCategory readFromTableJobCategoryByPN(String persianName) throws SQLException {
+    public JobCategory readFromTableJobCategoryByPN(String persianName, String postNamePersian) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory WHERE categoryNamePersian = persianName");
+        ResultSet res = stt.executeQuery("SELECT * FROM JobCategory WHERE (categoryNamePersian = persianName && postNamePersian = postNamePersian");
 
         while (res.next()) {
 
@@ -236,9 +236,9 @@ public class DataBaseHelper {
     }
 
 
-    public JobCategory readFromTableJobCategoryByEN(String englishName) throws SQLException {
+    public JobCategory readFromTableJobCategoryByEN(String englishName, String postNameEnglish) throws SQLException {
 
-        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE categoryNameEnglish = englishName");
+        ResultSet res = stt.executeQuery("SELECT * FROM TableJobCategory WHERE (categoryNameEnglish = englishName && postNameEnglish=postNameEnglish");
 
         while (res.next()) {
 
