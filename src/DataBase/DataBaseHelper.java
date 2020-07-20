@@ -18,6 +18,9 @@ public class DataBaseHelper {
         try {
             getConnection();
             createTableForEmployee();
+            createTableJobCategory();
+            CreateTableLegalReceipt();
+            createTablePayRate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -279,7 +282,6 @@ public class DataBaseHelper {
 
 
     public void CreateTableLegalReceipt() throws SQLException {
-        public void CreateTableLegalReceipt () throws SQLException {
             stt.execute("DROP TABLE IF EXISTS LegalReceipt");
             stt.execute("CREATE TABLE LegalReceipt (id BIGINT,BaseAmount VARCHAR(50),childAmount VARCHAR(50),maritalStatusAmount VARCHAR(50)" +
                     ",workExperienceAmount VARCHAR(50),extraWorkTimeAmount VARCHAR(50),totalAdditions VARCHAR(50),totalDeductions VARCHAR(50)," +
@@ -320,8 +322,8 @@ public class DataBaseHelper {
         }
 
         public void writeToTablePayRate (String[]arrays) throws SQLException {
-            stt.execute("INSERT INTO PayRate (BaseRate, childRate, maritalStatusRate, workExperienceRate," +
-                    "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES (arrays[0],arrays[1],arrays[2],arrays[3[]" +
+            stt.execute("INSERT INTO PayRate (BaseRate,childRate,maritalStatusRate,workExperienceRate," +
+                    "extraWorkTimeRate,taxRate,insuranceRate,payRateSerialCode) VALUES (arrays[0],arrays[1],arrays[2],arrays[3]" +
                     ",arrays[4],arrays[5],arrays[6],arrays[7])");
         }
 
