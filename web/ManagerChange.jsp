@@ -34,24 +34,50 @@
             </nav>
         </div>
         <div class="etelaat">
-            <form>
+            <form method="get" action="request?id=admin&syntax=loadChange">
                 <table style="direction: rtl; position: absolute ;left: 237px ;top: 20px;" >
                     <th>#</th>
                     <th style="font-size: 20px ; padding-left:100px;padding-right: 100px " class="name"><span>نام</span></th>
                     <th  style="font-size: 20px ;padding-left: 50px;padding-right: 50px" class="employeeIDNumber">کد پرسنلی</th>
                     <th style="font-size: 20px" class="upgrade">تغیر رده شغلی</th>
-
-                    <!--                megdar dehi radif jadval az injas-->
                     <tr>
                         <td>1</td>
-                        <td>1</td>
-                        <td>2</td>
+                        <td>علی فرقانی</td>
+                        <td>985361042</td>
                         <td><select  style="background-color: rgba(0,69,255,0.31)"  >
-                            <option value="upgrade">قراردادی</option>
+                            <option value="upgrade" selected>قراردادی</option>
                             <option value="upgrade">کارمند</option>
                             <option value="upgrade">مدیر داخلی</option>
                             <option value="upgrade">مدیر کل</option>
                         </select></td>
+                    </tr>
+                    <td>2</td>
+                    <td>فاطمه غفوری</td>
+                    <td>985367031</td>
+                    <td><select  style="background-color: rgba(0,69,255,0.31)"  >
+                        <option value="upgrade">قراردادی</option>
+                        <option value="upgrade">کارمند</option>
+                        <option value="upgrade">مدیر داخلی</option>
+                        <option value="upgrade" selected>مدیر کل</option>
+                    </select></td>
+                    </tr><td>3</td>
+                    <td>علی ناصری</td>
+                    <td>985367039</td>
+                    <td><select  style="background-color: rgba(0,69,255,0.31)"  >
+                        <option value="upgrade">قراردادی</option>
+                        <option value="upgrade">کارمند</option>
+                        <option value="upgrade" selected>مدیر داخلی</option>
+                        <option value="upgrade" >مدیر کل</option>
+                    </select></td>
+                    </tr><td>4</td>
+                    <td>توحید یاغموری</td>
+                    <td>985367043</td>
+                    <td><select  style="background-color: rgba(0,69,255,0.31)"  >
+                        <option value="upgrade">قراردادی</option>
+                        <option value="upgrade"selected>کارمند</option>
+                        <option value="upgrade">مدیر داخلی</option>
+                        <option value="upgrade" >مدیر کل</option>
+                    </select></td>
                     </tr>
 
 

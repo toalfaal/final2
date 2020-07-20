@@ -123,17 +123,18 @@ public class AccountingProcessing {
         if (isPayRateEmployeeLegalReceipt(payRate, employee, legalReceipt)) {
             legalReceipt.setBaseAmount(getFinalSalaryBase(payRate, employee));
             legalReceipt.setChildAmount(getFinalSalaryChild(payRate, employee));
-            legalReceipt.setExtraWorkTimeAmount(getFinalSalaryExtraWorkTimeMinute(payRate, employee));
+//            legalReceipt.setExtraWorkTimeAmount(getFinalSalaryExtraWorkTimeMinute(payRate, employee));
             legalReceipt.setMaritalStatusAmount(getFinalSalaryMaritalStatus(payRate, employee));
             legalReceipt.setWorkExperienceAmount(getFinalSalaryWorkExperience(payRate, employee));
             legalReceipt.setInsuranceAmount(getFinalSalaryInsurance(payRate, employee));
             legalReceipt.setTaxAmount(getFinalSalaryTax(payRate, employee));
-            legalReceipt.setTotalAdditions(calculateSalaryAdditions(payRate, employee));
+//            legalReceipt.setTotalAdditions(calculateSalaryAdditions(payRate, employee));
             legalReceipt.setTotalDeductions(calculateDeductions(payRate, employee));
-            legalReceipt.setFinalSalary(getFinalSalary(payRate, employee));
+//            legalReceipt.setFinalSalary(getFinalSalary(payRate, employee));
             return true;
         } else {
             return false;
         }
     }
+
 }

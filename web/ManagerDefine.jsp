@@ -48,46 +48,46 @@
                     </tr>
                     <tr style="text-align: center">
                         <td class="grardadi">قراردادی</td>
-                        <td ><input name="GBase" type="text"class="BaseRate-grardadi"> </td>
-                        <td ><input name="GExtra" type="text"class="extraWorkTimeRate-grardadi"> </td>
-                        <td ><input name="GTax" type="text"class="taxRate-grardadi"></td>
-                        <td ><input name="GInsure" type="text"class="insuranceRate-grardadi"></td>
-                        <td ><input name="GMar" type="text"class="maritalStatusRate-grardadi"></td>
-                        <td ><input name="GChild" type="text"class="childRate-grardadi"></td>
-                        <td ><input name="GWork" type="text"class="WorkExperienceRate-grardadi"></td>
+                        <td ><input name="GBase" type="text"class="BaseRate-grardadi" value="170"> </td>
+                        <td ><input name="GExtra" type="text"class="extraWorkTimeRate-grardadi" value="4"> </td>
+                        <td ><input name="GTax" type="text"class="taxRate-grardadi" value="8%"></td>
+                        <td ><input name="GInsure" type="text"class="insuranceRate-grardadi" value="350"></td>
+                        <td ><input name="GMar" type="text"class="maritalStatusRate-grardadi" value="200"></td>
+                        <td ><input name="GChild" type="text"class="childRate-grardadi" value="135"></td>
+                        <td ><input name="GWork" type="text"class="WorkExperienceRate-grardadi" value="30"></td>
 
                     </tr>
                     <tr style="text-align: center">
                         <td class="karmand">کارمند</td>
-                        <td ><input name="KBase"type="text"class="BaseRate-karmand"> </td>
-                        <td ><input name="KExtra" type="text"class="extraWorkTimeRate-karmand"></td>
-                        <td ><input name="KTax" class="taxRate-grardadi"></td>
-                        <td ><input name="KInsure" type="text"class="insuranceRate-karmand"></td>
-                        <td ><input name="KMar" type="text"class="maritalStatusRate-karmand"></td>
-                        <td ><input name="KChild" type="text"class="childRate-karmand"></td>
-                        <td ><input name="KWork" type="text"class="WorkExperienceRate-karmand"></td>
+                        <td ><input name="KBase"type="text"class="BaseRate-karmand" value="230"> </td>
+                        <td ><input name="KExtra" type="text"class="extraWorkTimeRate-karmand" value="2"></td>
+                        <td ><input name="KTax" class="taxRate-grardadi" value="10%"></td>
+                        <td ><input name="KInsure" type="text"class="insuranceRate-karmand" value="350"></td>
+                        <td ><input name="KMar" type="text"class="maritalStatusRate-karmand" value="280"></td>
+                        <td ><input name="KChild" type="text"class="childRate-karmand" value="170"></td>
+                        <td ><input name="KWork" type="text"class="WorkExperienceRate-karmand" value="40"></td>
 
                     </tr>
                     <tr style="text-align: center">
                         <td class="modir-daxeli">مدیر داخلی</td>
-                        <td ><input name="MDBase"type="text"class="BaseRate-modir-daxeli"></td>
-                        <td ><input name="MDExtra" type="text"class="extraWorkTimeRate-modir-daxeli"></td>
-                        <td ><input name="MDTax" type="text" class="taxRate-grardadi"></td>
-                        <td ><input name="MDInsure" type="text" class="insuranceRate-modir-daxeli"></td>
-                        <td ><input name="MDMar" type="text"class="maritalStatusRate-modir-daxeli"></td>
-                        <td ><input name="MDChild" type="text"class="childRate-modir-daxeli"></td>
-                        <td ><input name="MDWork" type="text"class="WorkExperienceRate-modir-daxeli"></td>
+                        <td ><input name="MDBase"type="text"class="BaseRate-modir-daxeli" value="270"></td>
+                        <td ><input name="MDExtra" type="text"class="extraWorkTimeRate-modir-daxeli" value="3"></td>
+                        <td ><input name="MDTax" type="text" class="taxRate-grardadi" value="12%"></td>
+                        <td ><input name="MDInsure" type="text" class="insuranceRate-modir-daxeli" value="350"></td>
+                        <td ><input name="MDMar" type="text"class="maritalStatusRate-modir-daxeli" value="330"></td>
+                        <td ><input name="MDChild" type="text"class="childRate-modir-daxeli" value="200"></td>
+                        <td ><input name="MDWork" type="text"class="WorkExperienceRate-modir-daxeli" value="50"></td>
 
                     </tr>
                     <tr style="text-align: center">
                         <td  class="modir-kol">مدیرکل</td>
-                        <td ><input name="MKBase" type="text" class="BaseRate-modir-kol"> </td>
-                        <td ><input name="MKExtra" type="text" class="extraWorkTimeRate-modir-kol"></td>
-                        <td ><input name="MKTax" type="text" class="taxRate-modir-kol"></td>
-                        <td ><input name="MKInsure" type="text" class="insuranceRate-modir-kol"></td>
-                        <td ><input name="MKMar" type="text" class="maritalStatusRate-modir-kol"></td>
-                        <td ><input name="MKChild" type="text" class="childRate-modir-kol"></td>
-                        <td ><input name="MKWork" type="text" class="WorkExperienceRate-modir-kol"></td>
+                        <td ><input name="MKBase" type="text" class="BaseRate-modir-kol" value="330"> </td>
+                        <td ><input name="MKExtra" type="text" class="extraWorkTimeRate-modir-kol" value="1"></td>
+                        <td ><input name="MKTax" type="text" class="taxRate-modir-kol" value="14%"></td>
+                        <td ><input name="MKInsure" type="text" class="insuranceRate-modir-kol" value="350"></td>
+                        <td ><input name="MKMar" type="text" class="maritalStatusRate-modir-kol" value="400"></td>
+                        <td ><input name="MKChild" type="text" class="childRate-modir-kol" value="250"></td>
+                        <td ><input name="MKWork" type="text" class="WorkExperienceRate-modir-kol" value="60"></td>
 
                     </tr>
 

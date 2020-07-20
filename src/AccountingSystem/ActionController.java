@@ -252,5 +252,96 @@ public class ActionController {
         dataBaseHelper.writeToTableLegalReceipt(dataBaseTransfer.dbWriteLegalReceipt());
     }
 
+    static void forghaniJob() {
+        JobCategory contractEmployee = new JobCategory();
+        contractEmployee.setCategoryName_Persian("قراردادی");
+        contractEmployee.setCategoryName_English("contract");
+        contractEmployee.setPostName_Persian("قراردادی");
+        contractEmployee.setPostName_English("contract");
+
+        PayRate payRateJobCategory = new PayRate();
+        payRateJobCategory.setBaseRate(1700);
+        payRateJobCategory.setextraWorkTimeRate(1);
+        payRateJobCategory.setTaxRate(8);
+        payRateJobCategory.setInsuranceRate(350);
+        payRateJobCategory.setMaritalStatusRate(200);
+        payRateJobCategory.setChildRate(135);
+        payRateJobCategory.setWorkExperienceRate(30);
+
+        new ActionController().setCategorySerialCode(contractEmployee, payRateJobCategory);
+
+        Employee employee = new Employee();
+        employee.setName_Persian("علی");
+        employee.setName_English("Ali");
+        employee.setLastName_Persian("فرقانی");
+        employee.setLastName_English("Forghani");
+        employee.setEmployeeIDNumber(Long.parseLong("985361042"));
+        employee.setEmployment_Year(1399);
+        employee.setEmployment_Month(04);
+        employee.setEmployment_Day(27);
+        employee.setMaritalStatus(false); // ایشالا کی بیجور دی (((:
+        employee.setCellPhoneNumber("09145030651");
+        employee.setHomeNumber("04135528773");
+        employee.setChildCount(0);
+        employee.setIdNumber("985361042");
+        employee.setCategoryName_Persian(contractEmployee.getCategoryName_Persian());
+        employee.setCategoryName_English(contractEmployee.getCategoryName_English());
+        employee.setPostName_Persian(contractEmployee.getPostName_Persian());
+        employee.setPostName_English(contractEmployee.getPostName_English());
+
+        PayRate payRatEmployee = new PayRate();
+
+        LegalReceipt legalReceipt_Farvardin = new LegalReceipt();
+        LegalReceipt legalReceipt_Ordibehesht = new LegalReceipt();
+        LegalReceipt legalReceipt_Khordad = new LegalReceipt();
+        LegalReceipt legalReceipt_Tir = new LegalReceipt();
+
+        ArrayList<LegalReceipt> legalReceiptArrayList = new ArrayList<LegalReceipt>();
+
+        new ActionController().setSerialCodes(payRateJobCategory, employee, legalReceipt_Farvardin);
+        legalReceipt_Ordibehesht.setLegalReceiptSerialCode(legalReceipt_Farvardin.getLegalReceiptSerialCode());
+        legalReceipt_Khordad.setLegalReceiptSerialCode(legalReceipt_Ordibehesht.getLegalReceiptSerialCode());
+        legalReceipt_Tir.setLegalReceiptSerialCode(legalReceipt_Khordad.getLegalReceiptSerialCode());
+
+        new ActionController().copyPayRate(payRateJobCategory, payRatEmployee);
+
+        legalReceipt_Farvardin.setFinalSalary(1304);
+        legalReceipt_Farvardin.setTotalAdditions(1790);
+        legalReceipt_Farvardin.setExtraWorkTimeAmount(0);
+        new AccountingProcessing().setPayRateToLegalReceipt(payRateJobCategory, employee, legalReceipt_Farvardin);
+        legalReceiptArrayList.add(legalReceipt_Farvardin);
+
+        legalReceipt_Ordibehesht.setFinalSalary(1304);
+        legalReceipt_Ordibehesht.setTotalAdditions(1790);
+        legalReceipt_Ordibehesht.setExtraWorkTimeAmount(0);
+        new AccountingProcessing().setPayRateToLegalReceipt(payRateJobCategory, employee, legalReceipt_Ordibehesht);
+        legalReceiptArrayList.add(legalReceipt_Ordibehesht);
+
+        legalReceipt_Khordad.setExtraWorkTimeAmount(840);
+        legalReceipt_Khordad.setTotalAdditions(2630);
+        legalReceipt_Khordad.setFinalSalary(2144);
+        new AccountingProcessing().setPayRateToLegalReceipt(payRateJobCategory, employee, legalReceipt_Khordad);
+        legalReceiptArrayList.add(legalReceipt_Khordad);
+
+        legalReceipt_Tir.setExtraWorkTimeAmount(960);
+        legalReceipt_Tir.setTotalAdditions(2750);
+        legalReceipt_Tir.setFinalSalary(2264);
+        new AccountingProcessing().setPayRateToLegalReceipt(payRateJobCategory, employee, legalReceipt_Tir);
+        legalReceiptArrayList.add(legalReceipt_Tir);
+
+        for (int i = 0; i < legalReceiptArrayList.size(); i++) {
+            System.out.println(legalReceiptArrayList.get(i).toString());
+        }
+        System.out.println("legalReceipt_Farvardin = " + legalReceipt_Farvardin.toString());
+        System.out.println("legalReceipt_Ordibehesht = " + legalReceipt_Ordibehesht.toString());
+        System.out.println("legalReceipt_Khordad = " + legalReceipt_Khordad.toString());
+        System.out.println("legalReceipt_Tir = " + legalReceipt_Tir.toString());
+
+    }
+
+    public static void main(String[] args) {
+        forghaniJob();
+    }
+
 
 }

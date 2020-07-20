@@ -50,7 +50,7 @@ public class CreatPDFLegalReceipt {
 
     void create() throws IOException, DocumentException {
 
-        File pdf = new File("C:\\Users\\ASUS\\Desktop\\pdf.pdf");
+        File pdf = new File("C:\\Users\\jinos\\Desktop\\pdf.pdf");
         if (pdf.exists())
             pdf.delete();
         else
@@ -67,19 +67,45 @@ public class CreatPDFLegalReceipt {
 
         // 4. Add content
         LegalReceipt legalReceipt = new LegalReceipt();
-        legalReceipt.setTaxAmount(1.0);
-        legalReceipt.setInsuranceAmount(120.0);
-        legalReceipt.setBaseAmount(100.0);
+        legalReceipt.setTaxAmount(136);
+        legalReceipt.setInsuranceAmount(350);
+        legalReceipt.setBaseAmount(1700);
         legalReceipt.setChildAmount(0.0);
         legalReceipt.setMaritalStatusAmount(0.0);
-        legalReceipt.setWorkExperienceAmount(150.0);
-        legalReceipt.setExtraWorkTimeAmount(0.0);
-        legalReceipt.setTotalAdditions(250.0);
-        legalReceipt.setTotalDeductions(121.0);
+        legalReceipt.setWorkExperienceAmount(0);
+        legalReceipt.setExtraWorkTimeAmount(960);
+        legalReceipt.setTotalAdditions(2660);
+        legalReceipt.setTotalDeductions(486);
         legalReceipt.setLegalReceiptSerialCode("SSC301");
-        legalReceipt.setFinalSalary(129.0);
+        legalReceipt.setFinalSalary(2174);
+
+         employee = new Employee();
+        employee.setName_Persian("علی");
+        employee.setName_English("Ali");
+        employee.setLastName_Persian("فرقانی");
+        employee.setLastName_English("Forghani");
+        employee.setEmployeeIDNumber(Long.parseLong("985361042"));
+        employee.setEmployment_Year(1399);
+        employee.setEmployment_Month(1);
+        employee.setEmployment_Day(9);
+        employee.setMaritalStatus(false); // ایشالا کی بیجور دی (((:
+        employee.setCellPhoneNumber("09145030651");
+        employee.setHomeNumber("04135528773");
+        employee.setChildCount(0);
+        employee.setIdNumber("985361042");
 
 
+        document.add(new Paragraph("Person Info",catFont));
+        document.add(new Paragraph("Full Name:",smallItalic));
+        document.add(new Paragraph(employee.getName_English()+" "+employee.getLastName_English(),subFont));
+        document.add(new Paragraph("Employment Date",smallItalic));
+        document.add(new Paragraph(employee.getEmployment_Year()+"\\\\"+employee.getEmployment_Month()
+                +"\\\\"+employee.getEmployment_Day(),subFont));
+        document.add(new Paragraph("ID Number",smallItalic));
+        document.add(new Paragraph(employee.getIdNumber(),subFont));
+        document.add(new Paragraph("Employee ID Number",smallItalic));
+        document.add(new Paragraph(employee.getEmployeeIDNumber()+"",subFont));
+        document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------"));
         document.add(new Paragraph("Legal Receipt", catFont));
         document.add(new Paragraph("Tax Pay : ", smallItalic));
         document.add(new Paragraph(String.valueOf(legalReceipt.getTaxAmount()), subFont));
@@ -106,6 +132,11 @@ public class CreatPDFLegalReceipt {
         // 5. Close document
         document.close();
 
+    }
+
+    public static void main(String[] args) throws IOException, DocumentException {
+        CreatPDFLegalReceipt creatPDFLegalReceipt = new CreatPDFLegalReceipt(null);
+        creatPDFLegalReceipt.create();
     }
 
 }

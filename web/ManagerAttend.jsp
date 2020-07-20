@@ -46,122 +46,42 @@
                     <th  style="font-size: 20px ; padding-left: 20px" class="jomeh">جمعه</th>
 
                     <tr>
-                        <td >1</td>
+                        <td >فاطمه غفوری</td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
-                        <td style="background-color: forestgreen"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td >3</td>
-                        <td style="background-color: forestgreen"></td>
+                        <td>علی ناصری</td>
                         <td></td>
                         <td style="background-color: forestgreen"></td>
-                        <td></td>
                         <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td >5</td>
+                        <td >توحید یاغموری</td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
                         <td style="background-color: forestgreen"></td>
-                        <td></td>
+                        <td style="background-color: forestgreen"></td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
-                        <td style="background-color: forestgreen"></td>
+                        <td ></td>
                     </tr>
                     <tr>
-                        <td>6</td>
+                        <td>علی فرقانی</td>
                         <td></td>
                         <td style="background-color: forestgreen"></td>
-                        <td></td>
+                        <td style="background-color: forestgreen"> </td>
                         <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td >7</td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td >9</td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td >11</td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
-                        <td style="background-color: forestgreen"></td>
-                        <td></td>
+                        <td style="background-color: forestgreen"> </td>
                         <td style="background-color: forestgreen"></td>
                         <td></td>
                     </tr>
