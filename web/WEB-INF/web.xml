@@ -6,7 +6,7 @@
            version="2.5">
     <servlet>
         <servlet-name>ali</servlet-name>
-        <servlet-class>Server.Test</servlet-class>
+        <servlet-class>Server.DownloadLegal</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>welcome</servlet-name>
@@ -81,6 +81,14 @@
     <servlet-mapping>
         <servlet-name>postManagerDefine</servlet-name>
         <url-pattern>/submitDefine</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>donload</servlet-name>
+        <servlet-class>Server.DownloadLegal</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>donload</servlet-name>
+        <url-pattern>/download</url-pattern>
     </servlet-mapping>
 
 
