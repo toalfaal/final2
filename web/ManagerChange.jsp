@@ -53,23 +53,7 @@
                             <option value="upgrade">مدیر کل</option>
                         </select></td>
                     </tr>
-                    <%String strI = (String)request.getAttribute("i");
-                        if (strI != null) {
-                            int i = Integer.parseInt(strI);
-                            for (int j = 0; j < i; j++) {
-                                out.print(" <tr>\n" +
-                                        "                        <td>"+i+"</td>\n" +
-                                        "                        <td>1</td>\n" +
-                                        "                        <td>2</td>\n" +
-                                        "                        <td><select name=\""+i+"\" style=\"background-color: rgba(0,69,255,0.31)\"  >\n" +
-                                        "                            <option value=\"upgrade\" selected >قراردادی</option>\n" +
-                                        "                            <option value=\"upgrade\">کارمند</option>\n" +
-                                        "                            <option value=\"upgrade\">مدیر داخلی</option>\n" +
-                                        "                            <option value=\"upgrade\">مدیر کل</option>\n" +
-                                        "                        </select></td>\n" +
-                                        "                    </tr>");
-                            }
-                        }%>
+
 
                 </table>
                 <input type="submit" class="submit-hokm" style="position: absolute; top: 540px ; left: 245px ;padding: 3px 30px ;background-color: rgba(0,69,255,0.86); border-style: none ;border-radius:5mm;font-size: 15px " value="تایید">
