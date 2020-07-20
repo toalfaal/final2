@@ -22,6 +22,7 @@ public class ForgetPassword extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("ForgetPassword.jsp");
+        System.out.println("ForgetPassword.doGet");
         code = (String)request.getAttribute("serverCode");
         id = (String)request.getAttribute("id");
         dispatcher.forward(request, response);

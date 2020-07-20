@@ -163,7 +163,7 @@ span{
 }
 
 form input {
-    color: #e4ae3f;
+    background-color: #e4ae3f;
 }
 
 h1:hover {
@@ -248,6 +248,7 @@ h1:hover {
 }
 .txt{
     background-color: #e4ae3f;
+    color: black;
     width: 180px;
     height: 30px;
     border: #e4ae3f;
@@ -256,6 +257,11 @@ h1:hover {
     text-align: left;
     margin-top:-20px
 }
+.imageLogo{
+    background-image: url("./../Image/alfa-02-01.png");
+
+}
+
 .modal-content {
     margin: 10% auto;
     width: 27%;

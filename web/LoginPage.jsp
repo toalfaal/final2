@@ -11,6 +11,8 @@
 
     <div class="test"></div>
     <div class="container">
+
+        <img class="imageLogo" style="width: 300px; position: absolute  ;  top: 60px;left: -10px" src="./Login/Image/alfa-02-01.png">
         <!--        <div class="navbar">-->
 
         <!--            <nav>-->
@@ -61,7 +63,7 @@
                     </p1>
                     <br>
                     <br>
-                    <input type="text" class="txt" name="id"><br>
+                    <input style="color: black" type="text" class="txt" name="id"><br>
                     <p class="code">
                         * کد امنیتی برای شماره تلفن ثبت شده ارسال خواهد شد.
                     </p>

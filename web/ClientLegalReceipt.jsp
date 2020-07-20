@@ -207,6 +207,8 @@
 <%--                    <td></td>--%>
 <%--                </tr>--%>
             </table>
+            <a href="download" id="modal-btn3" class="button3" style="position: absolute; top: 420px ; left: 50px ;padding: 3px 30px ; color: black;text-decoration:
+            none; background-color: #0048ff; border-style: none ;border-radius:5mm;font-size: 15px " value=" "> دانلود آخرین فیش حقوقی</a>
 
         </div>
     </div>
