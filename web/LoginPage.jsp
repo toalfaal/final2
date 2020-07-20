@@ -12,7 +12,8 @@
     <div class="test"></div>
     <div class="container">
 
-        <img class="imageLogo" style="width: 300px; position: absolute  ;  top: 60px;left: -10px" >
+        <img class="imageLogo" style="width: 300px; position: absolute  ;  top: 60px;left: -10px" src="Login/Image/alfa-02-01.png" >
+<%--        <p style="font-family: bold"> Toalalfa </p>--%>
         <!--        <div class="navbar">-->
 
         <!--            <nav>-->
@@ -31,7 +32,7 @@
                 <input type="text" name="username"> <br>
 
                 <span class="span1">رمز عبور: </span> <br>
-                <input type="text" name="password">
+                <input type="password" name="password">
                 <br>
                 <a href="#" id="modal-btn3" class="button3">رمز خود را فراموش کرده اید ؟ </a>
             </div>
