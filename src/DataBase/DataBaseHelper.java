@@ -35,9 +35,11 @@ public class DataBaseHelper {
     public void createTableForEmployee() throws SQLException {
 
         stt.execute("DROP TABLE IF EXISTS Employee");
-        stt.execute("CREATE TABLE Employee (id BIGINT NOT NULL AUTO_INCREMENT , fName, lName, eFName, eLName," +
-                " idNumber, cellphoneNumber, homeNumber, employmentYear, employmentMonth, employmentDay, employmentIDNumber, childCount," +
-                "maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode, cardNumber, PRIMARY KEY(id))");
+        stt.execute("CREATE TABLE Employee (id BIGINT NOT NULL AUTO_INCREMENT,fName VARCHAR(50),lName VARCHAR(50),eFName VARCHAR(50),eLName VARCHAR(50)," +
+                " idNumber VARCHAR(50), cellphoneNumber VARCHAR(50),homeNumber VARCHAR(50),employmentYear VARCHAR(50),employmentMonth VARCHAR(50)," +
+                "employmentDay VARCHAR(50),employmentIDNumber VARCHAR(50),childCount VARCHAR(50),maritalStatus BOOLEAN,categoryNameP VARCHAR(50)," +
+                "categoryNameE VARCHAR(50),postNameP VARCHAR(50),postNameE VARCHAR(50),employeeSerialCode VARCHAR(50),jobCategorySerialCode VARCHAR(50)" +
+                ",cardNumber VARCHAR(50),PRIMARY KEY(id))");
     }
 
 
@@ -192,8 +194,8 @@ public class DataBaseHelper {
 
     public void createTableJobCategory() throws SQLException {
         stt.execute("DROP TABLE IF EXISTS jobCategory");
-        stt.execute("CREATE TABLE jobCategory (id BIGINT, categoryNamePersian, categoryNameEnglish, postNamePersian," +
-                " postNameEnglish, jobCategorySerial_Code, PRIMARY KEY(id)");
+        stt.execute("CREATE TABLE jobCategory (id BIGINT NULL AUTO_INCREMENT,categoryNamePersian VARCHAR(50),categoryNameEnglish VARCHAR(50),postNamePersian VARCHAR(50)," +
+                "postNameEnglish VARCHAR(50),jobCategorySerial_Code VARCHAR(50),PRIMARY KEY(id))");
     }
 
     public void writeToTableJobCategory(String[] array) throws SQLException {
@@ -201,19 +203,19 @@ public class DataBaseHelper {
                 "VALUES (array[0],array[1],array[2],array[3],array[4]) ");
     }
 
-    public ArrayList<String> getPersinCategory() throws SQLException{
+    public ArrayList<String> getPersinCategory() throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM JobCategory");
         ArrayList<String> temp = new ArrayList<String>();
-        while(res.next()){
+        while (res.next()) {
             temp.add(res.getString("categoryNamePersian"));
         }
         return temp;
     }
 
-    public ArrayList<String> getEnglishCategory() throws SQLException{
+    public ArrayList<String> getEnglishCategory() throws SQLException {
         ResultSet res = stt.executeQuery("SELECT * FROM JobCategory");
         ArrayList<String> temp = new ArrayList<String>();
-        while(res.next()){
+        while (res.next()) {
             temp.add(res.getString("categoryNameEnglish"));
         }
         return temp;
@@ -270,9 +272,11 @@ public class DataBaseHelper {
 
 
     public void CreateTableLegalReceipt() throws SQLException {
-        stt.execute("DROP TABLE IF EXIST LegalReceipt");
-        stt.execute("CREATE TABLE LegalReceipt (id BIGINT, BaseAmount, childAmount, maritalStatusAmount, workExperienceAmount, eextraWorkTimeAmount, totalAdditions, " +
-                "totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode, PRIMARY KEY(id))");
+        public void CreateTableLegalReceipt() throws SQLException {
+            stt.execute("DROP TABLE IF EXISTS LegalReceipt");
+            stt.execute("CREATE TABLE LegalReceipt (id BIGINT,BaseAmount VARCHAR(50),childAmount VARCHAR(50),maritalStatusAmount VARCHAR(50)" +
+                    ",workExperienceAmount VARCHAR(50),extraWorkTimeAmount VARCHAR(50),totalAdditions VARCHAR(50),totalDeductions VARCHAR(50)," +
+                    "finalSalary VARCHAR(50),taxAmount VARCHAR(50),insuranceAmount VARCHAR(50),legalReceiptSerialCode VARCHAR(50),PRIMARY KEY(id))");
     }
 
     public void writeToTableLegalReceipt(String[] arrays) throws SQLException {
@@ -303,9 +307,9 @@ public class DataBaseHelper {
     }
 
     public void createTablePayRate() throws SQLException {
-        stt.execute("DROP TABLE IF EXIST PayRate");
-        stt.execute("CREATE TABLE PayRate(id BIGINT, BaseRate, childRate, maritalStatusRate, workExperienceRate," +
-                " extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode, PRIMARY KEY(id))");
+            stt.execute("DROP TABLE IF EXISTS PayRate");
+            stt.execute("CREATE TABLE PayRate(id BIGINT,BaseRate VARCHAR(50),childRate VARCHAR(50),maritalStatusRate VARCHAR(50)," +
+                    "workExperienceRate VARCHAR(50),extraWorkTimeRate VARCHAR(50),taxRate VARCHAR(50),insuranceRate VARCHAR(50),payRateSerialCode VARCHAR(50),PRIMARY KEY(id))");
     }
 
     public void writeToTablePayRate(String[] arrays) throws SQLException {
@@ -329,7 +333,6 @@ public class DataBaseHelper {
         }
         return DataBaseTransfer.dbReadPayRate(array);
     }
-
 
 
     public static void main(String[] args) {
