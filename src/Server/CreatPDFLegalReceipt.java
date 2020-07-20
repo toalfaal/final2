@@ -1,4 +1,7 @@
+package Server;
 
+import AccountingSystem.Employee;
+import AccountingSystem.LegalReceipt;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.scene.text.TextAlignment;

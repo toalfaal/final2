@@ -278,7 +278,6 @@ public class DataBaseHelper {
     }
 
 
-    public void CreateTableLegalReceipt() throws SQLException {
         public void CreateTableLegalReceipt () throws SQLException {
             stt.execute("DROP TABLE IF EXISTS LegalReceipt");
             stt.execute("CREATE TABLE LegalReceipt (id BIGINT,BaseAmount VARCHAR(50),childAmount VARCHAR(50),maritalStatusAmount VARCHAR(50)" +
