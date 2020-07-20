@@ -43,12 +43,19 @@ public class DataBaseHelper {
     }
 
 
-    public void writeToTableForEmployee(String[] emp) throws SQLException {
-        stt.execute("INSERT INTO Employee (fName, lName, eFName, eLName," +
-                "idNumber, cellphoneNumber, homeNumber, employmentYear, employmentMonth, employmentDay, employmentIDNumber, childCount" +
-                " maritalStatus BOOLEAN, categoryNameP, categoryNameE, postNameP, postNameE, employeeSerialCode, jobCategorySerialCode, cardNumber)" +
-                " VALUES (emp[0],emp[1],emp[2],emp[3],emp[4],emp[5],emp[6],emp[7],emp[8],emp[9],emp[10],emp[11],emp[12],emp[13],emp[14],emp[15]" +
-                ",emp[16],emp[17],emp[18],emp[19])");
+    public void writeToTableForEmployee(String[] array) throws SQLException {
+        if (array[12].equals("false")) {
+            stt.execute("INSERT INTO Employee (fName,lName,eFName,eLName,idNumber,cellphoneNumber,homeNumber,employmentYear,employmentMonth,employmentDay" +
+                    ",employmentIDNumber,childCount,maritalStatus,categoryNameP,categoryNameE,postNameP,postNameE,employeeSerialCode,jobCategorySerialCode," +
+                    "cardNumber) VALUES (array[0],array[1],array[2],array[3],array[4],array[5],array[6],array[7],array[8],array[9],array[10],array[11],false," +
+                    "array[13],array[14],array[15],array[16],array[17],array[18],array[19])");
+        }
+        if (array[12].equals("true")) {
+            stt.execute("INSERT INTO Employee (fName,lName,eFName,eLName,idNumber,cellphoneNumber,homeNumber,employmentYear,employmentMonth,employmentDay" +
+                    ",employmentIDNumber,childCount,maritalStatus,categoryNameP,categoryNameE,postNameP,postNameE,employeeSerialCode,jobCategorySerialCode," +
+                    "cardNumber) VALUES (array[0],array[1],array[2],array[3],array[4],array[5],array[6],array[7],array[8],array[9],array[10],array[11],true," +
+                    "array[13],array[14],array[15],array[16],array[17],array[18],array[19])");
+        }
     }
 
 
@@ -272,72 +279,72 @@ public class DataBaseHelper {
 
 
     public void CreateTableLegalReceipt() throws SQLException {
-        public void CreateTableLegalReceipt() throws SQLException {
+        public void CreateTableLegalReceipt () throws SQLException {
             stt.execute("DROP TABLE IF EXISTS LegalReceipt");
             stt.execute("CREATE TABLE LegalReceipt (id BIGINT,BaseAmount VARCHAR(50),childAmount VARCHAR(50),maritalStatusAmount VARCHAR(50)" +
                     ",workExperienceAmount VARCHAR(50),extraWorkTimeAmount VARCHAR(50),totalAdditions VARCHAR(50),totalDeductions VARCHAR(50)," +
                     "finalSalary VARCHAR(50),taxAmount VARCHAR(50),insuranceAmount VARCHAR(50),legalReceiptSerialCode VARCHAR(50),PRIMARY KEY(id))");
-    }
-
-    public void writeToTableLegalReceipt(String[] arrays) throws SQLException {
-        stt.execute("INSERT INTO LegalReceipt (BaseAmount, childAmount, maritalStatusAmount, workExperienceAmount, extraWorkTimeAmount," +
-                " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES (arrays[0],arrays[1]" +
-                ",arrays[2],arrays[3],arrays[4],arrays[5],arrays[6],arrays[7],arrays[8],arrays[9],arrays[10])");
-    }
-
-    public LegalReceipt readTableLegalReceipt(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM LegalReceipt WHERE legalReceiptSerialCode = serialNumber");
-
-        while (res.next()) {
-
-            array = new String[11];
-            array[0] = res.getString("BaseAmount");
-            array[1] = res.getString("childAmount");
-            array[2] = res.getString("maritalStatusAmount");
-            array[3] = res.getString("workExperienceAmount");
-            array[4] = res.getString("extraWorkTimeAmount");
-            array[5] = res.getString("totalAdditions");
-            array[6] = res.getString("totalDeductions");
-            array[7] = res.getString("finalSalary");
-            array[8] = res.getString("taxAmount");
-            array[9] = res.getString("insuranceAmount");
-            array[10] = res.getString("legalReceiptSerialCode");
         }
-        return DataBaseTransfer.dbReadLegalReceipt(array);
-    }
 
-    public void createTablePayRate() throws SQLException {
+        public void writeToTableLegalReceipt (String[]arrays) throws SQLException {
+            stt.execute("INSERT INTO LegalReceipt (BaseAmount, childAmount, maritalStatusAmount, workExperienceAmount, extraWorkTimeAmount," +
+                    " totalAdditions,totalDeductions, finalSalary,taxAmount, insuranceAmount, legalReceiptSerialCode) VALUES (arrays[0],arrays[1]" +
+                    ",arrays[2],arrays[3],arrays[4],arrays[5],arrays[6],arrays[7],arrays[8],arrays[9],arrays[10])");
+        }
+
+        public LegalReceipt readTableLegalReceipt (String serialNumber) throws SQLException {
+            ResultSet res = stt.executeQuery("SELECT * FROM LegalReceipt WHERE legalReceiptSerialCode = serialNumber");
+
+            while (res.next()) {
+
+                array = new String[11];
+                array[0] = res.getString("BaseAmount");
+                array[1] = res.getString("childAmount");
+                array[2] = res.getString("maritalStatusAmount");
+                array[3] = res.getString("workExperienceAmount");
+                array[4] = res.getString("extraWorkTimeAmount");
+                array[5] = res.getString("totalAdditions");
+                array[6] = res.getString("totalDeductions");
+                array[7] = res.getString("finalSalary");
+                array[8] = res.getString("taxAmount");
+                array[9] = res.getString("insuranceAmount");
+                array[10] = res.getString("legalReceiptSerialCode");
+            }
+            return DataBaseTransfer.dbReadLegalReceipt(array);
+        }
+
+        public void createTablePayRate () throws SQLException {
             stt.execute("DROP TABLE IF EXISTS PayRate");
             stt.execute("CREATE TABLE PayRate(id BIGINT,BaseRate VARCHAR(50),childRate VARCHAR(50),maritalStatusRate VARCHAR(50)," +
                     "workExperienceRate VARCHAR(50),extraWorkTimeRate VARCHAR(50),taxRate VARCHAR(50),insuranceRate VARCHAR(50),payRateSerialCode VARCHAR(50),PRIMARY KEY(id))");
-    }
-
-    public void writeToTablePayRate(String[] arrays) throws SQLException {
-        stt.execute("INSERT INTO PayRate (BaseRate, childRate, maritalStatusRate, workExperienceRate," +
-                "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES (arrays[0],arrays[1],arrays[2],arrays[3[]" +
-                ",arrays[4],arrays[5],arrays[6],arrays[7])");
-    }
-
-    public PayRate readFromTablePayRate(String serialNumber) throws SQLException {
-        ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = serialNumber");
-        while (res.next()) {
-            array = new String[8];
-            array[0] = res.getString("BaseRate");
-            array[1] = res.getString("childRate");
-            array[2] = res.getString("maritalStatusRate");
-            array[3] = res.getString("workExperienceRate");
-            array[4] = res.getString("extraWorkTimeRate");
-            array[5] = res.getString("taxRate");
-            array[6] = res.getString("insuranceRate");
-            array[7] = res.getString("payRateSerialCode");
         }
-        return DataBaseTransfer.dbReadPayRate(array);
+
+        public void writeToTablePayRate (String[]arrays) throws SQLException {
+            stt.execute("INSERT INTO PayRate (BaseRate, childRate, maritalStatusRate, workExperienceRate," +
+                    "extraWorkTimeRate, taxRate, insuranceRate, payRateSerialCode) VALUES (arrays[0],arrays[1],arrays[2],arrays[3[]" +
+                    ",arrays[4],arrays[5],arrays[6],arrays[7])");
+        }
+
+        public PayRate readFromTablePayRate (String serialNumber) throws SQLException {
+            ResultSet res = stt.executeQuery("SELECT * FROM PayRate WHERE payRateSerialCode = serialNumber");
+            while (res.next()) {
+                array = new String[8];
+                array[0] = res.getString("BaseRate");
+                array[1] = res.getString("childRate");
+                array[2] = res.getString("maritalStatusRate");
+                array[3] = res.getString("workExperienceRate");
+                array[4] = res.getString("extraWorkTimeRate");
+                array[5] = res.getString("taxRate");
+                array[6] = res.getString("insuranceRate");
+                array[7] = res.getString("payRateSerialCode");
+            }
+            return DataBaseTransfer.dbReadPayRate(array);
+        }
+
+
+        public static void main (String[]args){
+
+            new DataBaseHelper();
+
+        }
     }
-
-
-    public static void main(String[] args) {
-
-        new DataBaseHelper();
-
-    }
-}
