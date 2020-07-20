@@ -12,7 +12,7 @@
     <div class="test"></div>
     <div class="container">
 
-        <img class="imageLogo" style="width: 300px; position: absolute  ;  top: 60px;left: -10px" src="./Login/Image/alfa-02-01.png">
+        <img class="imageLogo" style="width: 300px; position: absolute  ;  top: 60px;left: -10px" >
         <!--        <div class="navbar">-->
 
         <!--            <nav>-->

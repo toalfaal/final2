@@ -76,7 +76,7 @@
      </div>
 
  <div class="content">
-     <h1>.به وب سایت شرکت <img src="image/alfa-02-01.png"style="width: 50px; height: 50px;" >خوش آمدید</h1>   <p>
+     <h1>.به وب سایت شرکت <img src="Login/Image/alfa-02-01.png" style="width: 50px; height: 50px; position:relative ; top: 10px" >خوش آمدید</h1>   <p>
        ارائه دهنده خدمات حسابداری و مدیریت پرسنل برای کسب و کار ها
        برای مشاهده فیش حقوقی و استفاده از سایر خدمات وارد شوید.
      </p>
