@@ -18,10 +18,11 @@ public class Login extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
-        request.setAttribute("status", "null");
-        System.out.println("Login.doGet");
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("LoginPage.jsp");
+//        request.setAttribute("status", "null");
+//        System.out.println("Login.doGet");
+//        dispatcher.forward(request, response);
+        response.sendRedirect("http://localhost:8080/web_war_exploded/login");
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

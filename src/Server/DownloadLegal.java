@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class Test extends HttpServlet {
+public class DownloadLegal extends HttpServlet {
     static int i = 0;
     @Override
     public void doGet(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
@@ -19,8 +19,7 @@ public class Test extends HttpServlet {
 
 
         // reads input file from an absolute path
-        String filePath = "E:/Test/Download/MYPIC.JPG";
-        File downloadFile = new File(filePath);
+        File downloadFile = new File("C:\\Users\\jinos\\Desktop\\pdf.pdf");
         FileInputStream inStream = new FileInputStream(downloadFile);
 
         // if you want to use a relative path to context root:
@@ -31,7 +30,7 @@ public class Test extends HttpServlet {
         ServletContext context = getServletContext();
 
         // gets MIME type of the file
-        String mimeType = context.getMimeType(filePath);
+        String mimeType = context.getMimeType(downloadFile.getPath());
         if (mimeType == null) {
             // set to binary type if MIME mapping not found
             mimeType = "application/octet-stream";
@@ -57,8 +56,11 @@ public class Test extends HttpServlet {
             outStream.write(buffer, 0, bytesRead);
         }
 
+
         inStream.close();
         outStream.close();
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ClientLegalReceipt.jsp");
+        dispatcher.forward(request, response);
     }
 
 
